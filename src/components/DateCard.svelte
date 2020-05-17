@@ -5,7 +5,7 @@
 </script>
 
 <div class:selected>
-  <h5>{weekday}</h5>
+  <h6>{weekday}</h6>
   <h3>{day}</h3>
 </div>
 
@@ -20,6 +20,5 @@
   div {
     text-align: center;
     padding: 0.5rem;
-    margin-bottom: 0.25rem;
   }
 </style>
