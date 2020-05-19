@@ -4,6 +4,8 @@
 
 <script>
 	import Calendar from '../components/Calendar.svelte'
+	import Trainings from '../components/Trainings.svelte'
 </script>
 
 <Calendar/>
+<Trainings/>
