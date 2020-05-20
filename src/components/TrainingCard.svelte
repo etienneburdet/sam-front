@@ -4,7 +4,9 @@
 
 <div id="card">
   <div id="header">
-    <h3>Marathon : VMA</h3>
+    <h3 id="plan">Marathon</h3>
+    <h3 id="title">VMA</h3>
+    <div id="spacer"></div>
   </div>
   <div id="trainings">
     <div class="group">
@@ -24,17 +26,11 @@
     </div>
   </div>
   <div id="footer">
-    <ArrowRightCircleIcon size="1x"/> <p>Stade</p>
+    <p><ArrowRightCircleIcon size="1x"/> Stade</p>
   </div>
 </div>
 
 <style>
-  h3 {
-    display: block;
-    text-align: center;
-    background: lightgrey;
-  }
-
   p {
     padding: 0 1rem;
   }
@@ -47,23 +43,24 @@
     overflow: hidden;
   }
 
-
   #footer {
     display: flex;
     align-items: center;
     background: lightgrey;
-    padding: 0 1rem;
-  }
-
-
-  .group {
-    border-top: 1px solid lightgray;
+    padding: 0 0.25rem;
   }
 
   #header {
-    background: lightgrey;
-    display: block;
-    text-align: center;
-    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    height: 3rem;
+  }
+
+  #plan {
+    margin-left: 0.5rem;
+  }
+
+  #plan, #spacer {
+    flex: 1;
   }
 </style>
