@@ -1,32 +1,28 @@
 <script>
   import { ArrowRightCircleIcon } from 'svelte-feather-icons'
+  export let plan = 'Plan'
+  export let title = 'Titre séance'
+  export let workouts = []
+  export let place = 'Lieu'
 </script>
 
 <div id="card">
   <div id="header">
-    <h3 id="plan">Marathon</h3>
-    <h3 id="title">VMA</h3>
+    <h3 id="plan">{plan}</h3>
+    <h3 id="title">{title}</h3>
     <div id="spacer"></div>
   </div>
   <div id="trainings">
-    <div class="group">
-      <p>
-        <strong>Groupe 1:</strong> 3 fois 10(30' - 30') à 100% VMA.
-      </p>
-    </div>
-    <div class="group">
-      <p>
-        <strong>Groupe 2:</strong> 2 fois 10(30' - 30') à 100% VMA.
-      </p>
-    </div>
-    <div class="group">
-      <p>
-        <strong>Groupe 3:</strong> 1,5 fois 10(30' - 30') à 100% VMA.
-      </p>
-    </div>
+    {#each workouts as workout}
+      <div class="group">
+        <p>
+          <strong>{workout.name} : </strong>{workout.instructions}
+        </p>
+      </div>
+    {/each}
   </div>
   <div id="footer">
-    <p><ArrowRightCircleIcon size="1x"/> Stade</p>
+    <p><ArrowRightCircleIcon size="1x"/>{place}</p>
   </div>
 </div>
 

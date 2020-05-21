@@ -52,6 +52,8 @@
   }
 
   #calendar {
+    position: sticky;
+    top: 0;
     display: block;
     padding: 1rem 0.5rem 0.25rem 0.5rem;
     background: red;
