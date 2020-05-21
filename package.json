@@ -12,10 +12,13 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.0",
     "compression": "^1.7.1",
+    "node-sass": "^4.14.1",
     "polka": "next",
     "sirv": "^0.4.0",
-    "svelte-feather-icons": "^3.2.2"
+    "svelte-feather-icons": "^3.2.2",
+    "svelte-preprocess": "^3.7.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

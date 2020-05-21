@@ -30,9 +30,13 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   p {
     padding: 0 1rem;
+  }
+
+  h3 {
+    display: inline;
   }
 
   .card {
@@ -57,9 +61,11 @@
     height: 3rem;
   }
 
-  .plan {
-    background: lightblue;
-  }
+  .plan h3 {
+      padding: 0.5rem;
+      border-radius: 0.1rem;
+      background: lightblue;
+    }
 
   .plan, .spacer {
     flex: 1;
