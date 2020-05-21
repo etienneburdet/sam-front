@@ -6,13 +6,17 @@
   export let place = 'Lieu'
 </script>
 
-<div id="card">
-  <div id="header">
-    <h3 id="plan">{plan}</h3>
-    <h3 id="title">{title}</h3>
-    <div id="spacer"></div>
+<div class="card">
+  <div class="card-header">
+    <div class="plan">
+      <h3>{plan}</h3>
+    </div>
+    <div class="title">
+      <h3>{title}</h3>
+    </div>
+    <div class="spacer"></div>
   </div>
-  <div id="trainings">
+  <div class="trainings">
     {#each workouts as workout}
       <div class="group">
         <p>
@@ -21,7 +25,7 @@
       </div>
     {/each}
   </div>
-  <div id="footer">
+  <div class="card-footer">
     <p><ArrowRightCircleIcon size="1x"/>{place}</p>
   </div>
 </div>
@@ -31,32 +35,33 @@
     padding: 0 1rem;
   }
 
-  #card {
-    width: 98%;
+  .card {
+    width: 90%;
     margin: 1rem auto;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid black;
     overflow: hidden;
   }
 
-  #footer {
+  .card-footer {
     display: flex;
     align-items: center;
     background: lightgrey;
     padding: 0 0.25rem;
   }
 
-  #header {
+  .card-header {
     display: flex;
     align-items: center;
     height: 3rem;
   }
 
-  #plan {
-    margin-left: 0.5rem;
+  .plan {
+    background: lightblue;
   }
 
-  #plan, #spacer {
+  .plan, .spacer {
     flex: 1;
   }
 </style>

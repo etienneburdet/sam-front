@@ -20,6 +20,7 @@
   }
 </script>
 
+
 <TrainingCard {...training}/>
 <TrainingCard/>
 <TrainingCard/>
