@@ -1,10 +1,16 @@
 <script>
   import { UserIcon, CalendarIcon } from 'svelte-feather-icons'
+
+  export let selected
 </script>
 
 <div class="nav">
-  <CalendarIcon size="1.5x" class="nav-icon nav-icon-selected"/>
-  <UserIcon size="1.5x" class="nav-icon"/>
+  <a href="/" class="nav-icon" class:nav-icon-selected={selected === 'home'}>
+    <CalendarIcon size="1.5x"/>
+  </a>
+  <a href="/preferences" class="nav-icon" class:nav-icon-selected={selected === 'preferences'}>
+    <UserIcon size="1.5x"/>
+  </a>
 </div>
 
 <style lang="scss">
@@ -20,12 +26,12 @@
     background: white;
   }
 
-  :global(.nav-icon) {
+  .nav-icon {
     padding: 0.5rem;
     margin: 0.5rem;
   }
 
-  :global(.nav-icon-selected) {
+  .nav-icon-selected {
     color: rgb(146, 23, 77);
     border-top: 2px solid rgb(146, 23, 77);
   }

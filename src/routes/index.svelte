@@ -10,4 +10,4 @@
 
 <Calendar/>
 <Trainings/>
-<BottomNav/>
+<BottomNav selected="home"/>
