@@ -3,7 +3,7 @@
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
   import moment from 'moment'
 
-  let monday = moment().startOf('week').add(1, 'd')
+  let monday = moment().startOf('week').add(-6, 'd').startOf('day')
   let daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
 </script>
 
@@ -19,7 +19,6 @@
     </div>
   </div>
   <div id="dates">
-  {daysOfWeek}
     {#each daysOfWeek as day }
       <DateCard day={day} />
     {/each}

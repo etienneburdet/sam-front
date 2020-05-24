@@ -1,11 +1,12 @@
 <script>
   import moment from 'moment'
-  export let selected = false
   export let day
+
+  let selected = (moment().format('LL') === day.format('LL'))
 </script>
 
 <div class:selected>
-  <h6>{day.day()}</h6>
+  <h6>{day.format('dd')}</h6>
   <h3>{day.date()}</h3>
 </div>
 
