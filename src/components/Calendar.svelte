@@ -1,6 +1,10 @@
 <script>
   import DateCard from './DateCard.svelte'
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
+  import moment from 'moment'
+
+  let monday = moment().startOf('week').add(1, 'd')
+  let daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
 </script>
 
 
@@ -15,13 +19,10 @@
     </div>
   </div>
   <div id="dates">
-    <DateCard weekday="Lundi" day="25"/>
-    <DateCard weekday="Mardi" day="25"/>
-    <DateCard weekday="Mercredi" day="25" selected/>
-    <DateCard weekday="Jeudi" day="25"/>
-    <DateCard weekday="Vendredi" day="25"/>
-    <DateCard weekday="Samedi" day="25"/>
-    <DateCard weekday="Dimanche" day="25"/>
+  {daysOfWeek}
+    {#each daysOfWeek as day }
+      <DateCard day={day} />
+    {/each}
   </div>
   <div>
     <ChevronDownIcon size="2x"/>

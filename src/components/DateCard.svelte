@@ -1,12 +1,12 @@
 <script>
+  import moment from 'moment'
   export let selected = false
-  export let weekday
   export let day
 </script>
 
 <div class:selected>
-  <h6>{weekday}</h6>
-  <h3>{day}</h3>
+  <h6>{day.day()}</h6>
+  <h3>{day.date()}</h3>
 </div>
 
 <style>
