@@ -1,20 +1,42 @@
 <script>
-  import DateCard from './DateCard.svelte'
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
   import moment from 'moment'
+  import { onMount } from 'svelte';
 
-  let monday = moment().startOf('week').add(-6, 'd').startOf('day')
+  import DateCard from './DateCard.svelte'
+
+  let now = moment()
+  let monday = now.startOf('week').add(-6, 'd').startOf('day')
   let daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
+  let month = now.format('MMMM')
+
+  const updateDate = () => {
+    monday = now.startOf('week').add(-6, 'd').startOf('day')
+    daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
+    month = now.format('MMMM')
+    return { monday, daysOfWeek, month }
+  }
+
+  const prevMonth = (e) => {
+    now.subtract(1, 'months')
+    updateDate()
+  }
+
+  const nextMonth = (e) => {
+    now.add(1, 'months')
+    updateDate()
+  }
+
 </script>
 
 
 <div id="calendar">
   <div id="month">
-    <div class="arrow-left arrow">
+    <div class="arrow-left arrow" on:click={prevMonth}>
       <TriangleIcon size="1x"/>
     </div>
-    <h2>Mai 2020</h2>
-    <div class="arrow arrow-right">
+    <h2>{month}</h2>
+    <div class="arrow arrow-right" on:click={nextMonth}>
       <TriangleIcon size="1x"/>
     </div>
   </div>
