@@ -1,34 +1,22 @@
 <script>
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
   import moment from 'moment'
-  import { onMount } from 'svelte';
-
   import DateCard from './DateCard.svelte'
 
+  let monday, daysOfWeek, month
   let now = moment()
-  let monday = now.startOf('week').add(-6, 'd').startOf('day')
-  let daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
-  let month = now.format('MMMM')
 
-  const updateDate = () => {
+  $: {
     monday = now.startOf('week').add(-6, 'd').startOf('day')
     daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
     month = now.format('MMMM')
-    return { monday, daysOfWeek, month }
   }
 
-  const prevMonth = (e) => {
-    now.subtract(1, 'months')
-    updateDate()
-  }
-
-  const nextMonth = (e) => {
-    now.add(1, 'months')
-    updateDate()
-  }
-
+  const prevMonth = () => now = now.subtract(1, 'months')
+  const nextMonth = () => now = now.add(1, 'months')
+  const prevWeek = () => now = now.subtract(1, 'weeks')
+  const nextWeek = () => now = now.add(1, 'weeks')
 </script>
-
 
 <div id="calendar">
   <div id="month">
@@ -41,9 +29,15 @@
     </div>
   </div>
   <div id="dates">
+    <div class="arrow-left arrow" on:click={prevWeek}>
+      <TriangleIcon size="1x"/>
+    </div>
     {#each daysOfWeek as day }
       <DateCard day={day} />
     {/each}
+    <div class="arrow-right arrow" on:click={nextMonth}>
+      <TriangleIcon size="1x"/>
+    </div>
   </div>
   <div>
     <ChevronDownIcon size="2x"/>
