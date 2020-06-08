@@ -4,18 +4,19 @@
   import DateCard from './DateCard.svelte'
 
   let monday, daysOfWeek, month
-  let now = moment()
+  let today = moment().clone()
+  let displayMoment = moment()
 
   $: {
-    monday = now.startOf('week').add(-6, 'd').startOf('day')
+    monday = displayMoment.startOf('week').add(-6, 'd').startOf('day')
     daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
-    month = now.format('MMMM')
+    month = displayMoment.format('MMMM')
   }
 
-  const prevMonth = () => now = now.subtract(1, 'months')
-  const nextMonth = () => now = now.add(1, 'months')
-  const prevWeek = () => now = now.subtract(1, 'weeks')
-  const nextWeek = () => now = now.add(1, 'weeks')
+  const prevMonth = () => displayMoment = displayMoment.subtract(1, 'months')
+  const nextMonth = () => displayMoment = displayMoment.add(1, 'months')
+  const prevWeek = () => displayMoment = displayMoment.subtract(1, 'weeks')
+  const nextWeek = () => displayMoment = displayMoment.add(1, 'weeks')
 </script>
 
 <div id="calendar">
@@ -33,9 +34,9 @@
       <TriangleIcon size="1x"/>
     </div>
     {#each daysOfWeek as day }
-      <DateCard day={day} />
+      <DateCard day={day} selected={day.format('LL') === today.format('LL')}/>
     {/each}
-    <div class="arrow-right arrow" on:click={nextMonth}>
+    <div class="arrow-right arrow" on:click={nextWeek}>
       <TriangleIcon size="1x"/>
     </div>
   </div>

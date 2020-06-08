@@ -1,10 +1,7 @@
 <script>
-  import moment from 'moment'
   export let day
-
-  let selected = (moment().format('LL') === day.format('LL'))
+  export let selected
 </script>
-
 <div class:selected>
   <h6>{day.format('dd')}</h6>
   <h3>{day.date()}</h3>
