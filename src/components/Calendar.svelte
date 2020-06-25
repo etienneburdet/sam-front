@@ -8,7 +8,6 @@
   let displayMoment = moment()
 
   $: {
-    moment.locale('fr')
     monday = displayMoment.startOf('isoweek').startOf('day')
     daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
     month = displayMoment.format('MMMM')
