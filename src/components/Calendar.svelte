@@ -5,11 +5,10 @@
 
   export let trainingDates
 
-  let nextTrainingDate = trainingDates.shift()
-
   let monday, daysOfWeek, month
   let today = moment().clone()
   let displayMoment = moment()
+  let nextTrainingDate = trainingDates.find(date => date.isAfter(today))
 
   $: {
     monday = displayMoment.startOf('isoweek').startOf('day')
@@ -38,10 +37,9 @@
       <TriangleIcon size="1x"/>
     </div>
     {#each daysOfWeek as day }
-      <DateCard
-        day={day}
-        isNext={day.isSame(nextTrainingDate.date)}
-        isTraining={trainingDates.includes(day)}/>
+      <DateCard day={day}
+        isNext={day.isSame(nextTrainingDate)}
+        isTraining={trainingDates.find(date => date.isSame(day))}/>
     {/each}
     <div class="arrow-right arrow" on:click={nextWeek}>
       <TriangleIcon size="1x"/>
