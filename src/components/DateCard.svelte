@@ -1,11 +1,13 @@
 <script>
+  import format from 'date-fns/format'
+
   export let day
   export let isNext
   export let isTraining
 </script>
 <div class:isNext class:isTraining>
-  <h6>{day.format('dd')}</h6>
-  <h3>{day.date()}</h3>
+  <h6>{format(day, 'EE')}</h6>
+  <h3>{format(day, 'dd')}</h3>
 </div>
 
 <style>

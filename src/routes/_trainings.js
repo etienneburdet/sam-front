@@ -1,22 +1,21 @@
-import moment from 'moment'
+import { compareAsc } from 'date-fns'
 
 const trainings = [
   {
     id: 1,
-    date: moment().add(2, 'days').startOf('day').clone(),
+    date: new Date(2020, 6, 23),
     plan: "Marathon",
     Workout: "3x8' seuil"
   },
   {
     id: 2,
-    date: moment().subtract(2, 'days').startOf('day').clone(),
+    date: new Date(2020, 6, 28),
     plan: "Marathon",
     Workout: "3x8' seuil"
   }
 ]
 
 const trainingDates = trainings.map(training => training.date)
+trainingDates.sort(compareAsc)
 
-trainingDates.sort((a,b) => a.diff(b))
-
-export { trainings, trainingDates }
+export { trainingDates }

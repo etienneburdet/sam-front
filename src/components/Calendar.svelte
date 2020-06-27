@@ -1,25 +1,29 @@
 <script>
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
-  import moment from 'moment'
+  import format from 'date-fns/format'
+  import addDays from 'date-fns/addDays'
+  import addWeeks from 'date-fns/addWeeks'
+  import addMonths from 'date-fns/addMonths'
+  import startOfWeek from 'date-fns/startOfWeek'
   import DateCard from './DateCard.svelte'
 
   export let trainingDates
+  export let nextTrainingDate
 
   let monday, daysOfWeek, month
-  let today = moment().clone()
-  let displayMoment = moment()
-  let nextTrainingDate = trainingDates.find(date => date.isAfter(today))
+  let displayedDate = new Date()
 
   $: {
-    monday = displayMoment.startOf('isoweek').startOf('day')
-    daysOfWeek = [...Array(7)].map((el, i) =>  monday.clone().add(i,'d'))
-    month = displayMoment.format('MMMM')
+    monday = startOfWeek(displayedDate)
+    daysOfWeek = [...Array(7)].map((el, i) => addDays(monday, i))
+    console.log(daysOfWeek)
+    month = format(displayedDate, 'MMMM')
   }
 
-  const prevMonth = () => displayMoment = displayMoment.subtract(1, 'months')
-  const nextMonth = () => displayMoment = displayMoment.add(1, 'months')
-  const prevWeek = () => displayMoment = displayMoment.subtract(1, 'weeks')
-  const nextWeek = () => displayMoment = displayMoment.add(1, 'weeks')
+  const prevMonth = () => displayedDate = addMonths(displayedDate, -1)
+  const nextMonth = () => displayedDate = addMonths(displayedDate, 1)
+  const prevWeek = () => displayedDate = addWeeks(displayedDate, -1)
+  const nextWeek = () => displayedDate = addWeeks(displayedDate, 1)
 </script>
 
 <div id="calendar">
@@ -36,10 +40,10 @@
     <div class="arrow-left arrow" on:click={prevWeek}>
       <TriangleIcon size="1x"/>
     </div>
-    {#each daysOfWeek as day }
+    {#each daysOfWeek as day}
       <DateCard day={day}
-        isNext={day.isSame(nextTrainingDate)}
-        isTraining={trainingDates.find(date => date.isSame(day))}/>
+        isNext={false}
+        isTraining={false}/>
     {/each}
     <div class="arrow-right arrow" on:click={nextWeek}>
       <TriangleIcon size="1x"/>
