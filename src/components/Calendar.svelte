@@ -1,22 +1,19 @@
 <script>
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
-  import format from 'date-fns/format'
-  import addDays from 'date-fns/addDays'
-  import addWeeks from 'date-fns/addWeeks'
-  import addMonths from 'date-fns/addMonths'
-  import startOfWeek from 'date-fns/startOfWeek'
+  import { format, addDays, addWeeks, addMonths, startOfISOWeek, isSameDay, isAfter } from 'date-fns'
   import DateCard from './DateCard.svelte'
 
   export let trainingDates
-  export let nextTrainingDate
+
+  const today = new Date()
+  const nextTrainingDate = trainingDates.find(date => isAfter(date, today))
 
   let monday, daysOfWeek, month
-  let displayedDate = new Date()
+  let displayedDate = today
 
   $: {
-    monday = startOfWeek(displayedDate)
+    monday = startOfISOWeek(displayedDate)
     daysOfWeek = [...Array(7)].map((el, i) => addDays(monday, i))
-    console.log(daysOfWeek)
     month = format(displayedDate, 'MMMM')
   }
 
@@ -24,6 +21,7 @@
   const nextMonth = () => displayedDate = addMonths(displayedDate, 1)
   const prevWeek = () => displayedDate = addWeeks(displayedDate, -1)
   const nextWeek = () => displayedDate = addWeeks(displayedDate, 1)
+  const isTraining = (day) => trainingDates.find(date => isSameDay(day, date))
 </script>
 
 <div id="calendar">
@@ -42,8 +40,8 @@
     </div>
     {#each daysOfWeek as day}
       <DateCard day={day}
-        isNext={false}
-        isTraining={false}/>
+        isNext={isSameDay(day, nextTrainingDate)}
+        isTraining={isTraining(day)}/>
     {/each}
     <div class="arrow-right arrow" on:click={nextWeek}>
       <TriangleIcon size="1x"/>
