@@ -27,6 +27,10 @@
     align-items: baseline;
   }
 
+  .arrow {
+    padding: 0.25rem;
+  }
+
   .arrow-left {
     transform: rotate(-90deg)
   }
