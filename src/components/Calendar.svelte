@@ -1,48 +1,43 @@
 <script>
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
-  import { format, addDays, addWeeks, addMonths, startOfISOWeek, isSameDay, isAfter } from 'date-fns'
+  import { format, addDays, addMonths, startOfISOWeek, isSameDay, isAfter } from 'date-fns'
   import DateCard from './DateCard.svelte'
+  import MonthBar from './MonthBar.svelte'
+  import { displayedDate } from './store.js'
+
 
   export let trainingDates
 
   const today = new Date()
   const nextTrainingDate = trainingDates.find(date => isAfter(date, today))
 
-  let monday, daysOfWeek, month
-  let displayedDate = today
+  let monday, daysOfWeek
+  $displayedDate = today
+  console.log($displayedDate)
 
   $: {
-    monday = startOfISOWeek(displayedDate)
+    monday = startOfISOWeek($displayedDate)
     daysOfWeek = [...Array(7)].map((el, i) => addDays(monday, i))
-    month = format(displayedDate, 'MMMM')
+    console.log(daysOfWeek)
   }
 
-  const prevMonth = () => displayedDate = addMonths(displayedDate, -1)
-  const nextMonth = () => displayedDate = addMonths(displayedDate, 1)
-  const prevWeek = () => displayedDate = addWeeks(displayedDate, -1)
-  const nextWeek = () => displayedDate = addWeeks(displayedDate, 1)
+  const prevWeek = () => console.log('nextWeek');
+  const nextWeek = () => console.log('nextWeek');
   const isTraining = (day) => trainingDates.find(date => isSameDay(day, date))
-  const backToToday= () => displayedDate = today
+  const backToToday= () => console.log('return today');
 </script>
 
 <div id="calendar">
-  <div id="month">
-    <button on:click={backToToday}>
-      Prochain entrainement
-    </button>
-    <div class="arrow-left arrow" on:click={prevMonth}>
-      <TriangleIcon size="1x"/>
-    </div>
-    <h2>{month}</h2>
-    <div class="arrow arrow-right" on:click={nextMonth}>
-      <TriangleIcon size="1x"/>
-    </div>
-  </div>
+  <button on:click={backToToday}>
+  Prochain entrainement
+  </button>
+  <MonthBar/>
   <div id="dates">
     <div class="arrow-left arrow" on:click={prevWeek}>
       <TriangleIcon size="1x"/>
     </div>
     {#each daysOfWeek as day}
+      {console.log(day)}
       <DateCard day={day}
         isNext={isSameDay(day, nextTrainingDate)}
         isTraining={isTraining(day)}/>
@@ -59,12 +54,6 @@
 <style>
   div {
     text-align: center;
-  }
-
-  #month {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
   }
 
   .arrow {
