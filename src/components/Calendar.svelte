@@ -22,10 +22,14 @@
   const prevWeek = () => displayedDate = addWeeks(displayedDate, -1)
   const nextWeek = () => displayedDate = addWeeks(displayedDate, 1)
   const isTraining = (day) => trainingDates.find(date => isSameDay(day, date))
+  const backToToday= () => displayedDate = today
 </script>
 
 <div id="calendar">
   <div id="month">
+    <button on:click={backToToday}>
+      Prochain entrainement
+    </button>
     <div class="arrow-left arrow" on:click={prevMonth}>
       <TriangleIcon size="1x"/>
     </div>

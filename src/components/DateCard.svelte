@@ -12,6 +12,7 @@
 
 <style>
   .isNext {
+    opacity: 1;
     color: black;
     background: white;
     border-radius: 0.5rem;
@@ -19,11 +20,13 @@
   }
 
   .isTraining {
+    opacity: 1;
     border: 1px solid white;
     border-radius: 1rem;
   }
 
   div {
+    opacity: 0.75;
     text-align: center;
     padding: 0.5rem;
   }
