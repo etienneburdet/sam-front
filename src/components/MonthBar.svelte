@@ -3,10 +3,11 @@
   import { format, addMonths } from 'date-fns'
   import { displayedDate } from './store.js'
 
-  let month = format($displayedDate, 'MMMM')
+  let month
+  $: month = format($displayedDate, 'MMMM')
 
-  const prevMonth = () => $displayedDate = addMonths(displayedDate, -1)
-  const nextMonth = () => $displayedDate = addMonths(displayedDate, 1)
+  const prevMonth = () => $displayedDate = addMonths($displayedDate, -1)
+  const nextMonth = () => $displayedDate = addMonths($displayedDate, 1)
 </script>
 
 <div id="month">

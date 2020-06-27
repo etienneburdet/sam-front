@@ -13,12 +13,10 @@
 
   let monday, daysOfWeek
   $displayedDate = today
-  console.log($displayedDate)
 
   $: {
     monday = startOfISOWeek($displayedDate)
     daysOfWeek = [...Array(7)].map((el, i) => addDays(monday, i))
-    console.log(daysOfWeek)
   }
 
   const prevWeek = () => console.log('nextWeek');
@@ -37,7 +35,6 @@
       <TriangleIcon size="1x"/>
     </div>
     {#each daysOfWeek as day}
-      {console.log(day)}
       <DateCard day={day}
         isNext={isSameDay(day, nextTrainingDate)}
         isTraining={isTraining(day)}/>
