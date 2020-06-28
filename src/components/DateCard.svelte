@@ -1,11 +1,18 @@
 <script>
   import format from 'date-fns/format'
+  import { displayedDate } from './store.js'
 
   export let day
   export let isNext
   export let isTraining
+
+  const setDisplayDate = () => {
+    $displayedDate = day
+    console.log($displayedDate)
+  }
 </script>
-<div class:isNext class:isTraining>
+
+<div class:isNext class:isTraining on:click={setDisplayDate}>
   <h6>{format(day, 'EE')}</h6>
   <h3>{format(day, 'dd')}</h3>
 </div>

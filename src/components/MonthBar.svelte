@@ -1,4 +1,5 @@
 <script>
+  import { fly } from 'svelte/transition'
   import { TriangleIcon } from 'svelte-feather-icons'
   import { format, addMonths } from 'date-fns'
   import { displayedDate } from './store.js'
@@ -14,7 +15,7 @@
   <div class="arrow-left arrow" on:click={prevMonth}>
     <TriangleIcon size="1x"/>
   </div>
-  <h2>{month}</h2>
+  <h2 transition:fly="{{ y: 200, duration: 2000 }}">{month}</h2>
   <div class="arrow arrow-right" on:click={nextMonth}>
     <TriangleIcon size="1x"/>
   </div>

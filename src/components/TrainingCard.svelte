@@ -1,5 +1,6 @@
 <script>
   import { ArrowRightCircleIcon } from 'svelte-feather-icons'
+  export let date
   export let plan = 'Plan'
   export let title = 'Titre séance'
   export let workouts = []
