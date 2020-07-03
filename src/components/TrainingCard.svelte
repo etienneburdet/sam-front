@@ -1,5 +1,4 @@
 <script>
-  import { ArrowRightCircleIcon } from 'svelte-feather-icons'
   export let date
   export let plan = 'Plan'
   export let title = 'Titre séance'
@@ -27,7 +26,7 @@
     {/each}
   </div>
   <div class="card-footer">
-    <p><ArrowRightCircleIcon size="1x"/>{place}</p>
+    <p> -> {place}</p>
   </div>
 </div>
 
