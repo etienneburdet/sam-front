@@ -1,20 +1,20 @@
 <script>
   import { UserIcon, CalendarIcon } from 'svelte-feather-icons'
 
-  export let selected
+  export let segment
 </script>
 
-<div class="nav">
-  <a href="/" class="nav-icon" class:nav-icon-selected={selected === 'home'}>
+<nav>
+  <a href="/" class="nav-icon" class:nav-icon-selected={ segment === undefined }>
     <CalendarIcon size="1.5x"/>
   </a>
-  <a href="/preferences" class="nav-icon" class:nav-icon-selected={selected === 'preferences'}>
+  <a href="/preferences" class="nav-icon" class:nav-icon-selected={ segment === 'preferences'}>
     <UserIcon size="1.5x"/>
   </a>
-</div>
+</nav>
 
 <style lang="scss">
-  .nav {
+  nav {
     position: fixed;
     bottom: 0;
     display: flex;

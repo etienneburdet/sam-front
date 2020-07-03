@@ -14,8 +14,8 @@
 </script>
 
 <Calendar/>
+
+
 {#each trainings as training}
 	<TrainingCard {...training}/>
 {/each}
-
-<BottomNav selected="home"/>
