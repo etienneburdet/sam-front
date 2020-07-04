@@ -10,6 +10,11 @@
 <BottomNav {segment}/>
 
 <style>
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
   main {
     margin-bottom: 3.5rem;
   }

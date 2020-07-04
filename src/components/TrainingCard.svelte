@@ -26,7 +26,7 @@
     {/each}
   </div>
   <div class="card-footer">
-    <p> -> {place}</p>
+    <p>{place}</p>
   </div>
 </div>
 
@@ -71,3 +71,5 @@
     flex: 1;
   }
 </style>
+
+<div class="fe"></div>
