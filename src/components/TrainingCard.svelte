@@ -9,7 +9,7 @@
 <div class="card">
   <div class="card-header">
     <div class="plan">
-      <h3>{plan}</h3>
+      <h3>{JSON.stringify(plan)}</h3>
     </div>
     <div class="title">
       <h3>{title}</h3>
@@ -20,7 +20,7 @@
     {#each workouts as workout}
       <div class="group">
         <p>
-          <strong>{workout.name} : </strong>{workout.instructions}
+          <strong>{workout.groupe} : </strong>{workout.Description}
         </p>
       </div>
     {/each}

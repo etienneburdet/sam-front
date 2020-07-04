@@ -1,6 +1,6 @@
 <script context="module">
 	export async function preload() {
-		const res = await this.fetch(`https://samcms.herokuapp.com/entrainements`)
+		const res = await this.fetch(`http://localhost:1337/entrainements`)
 		const trainings = await res.json()
 		return { trainings }
 	}
@@ -15,7 +15,12 @@
 
 <Calendar/>
 
-
 {#each trainings as training}
-	<TrainingCard {...training}/>
+	<TrainingCard
+		plan={training.plan.Nom}
+		date={training.Date}
+		title={training.Nom}
+		workouts={training.Exercice}
+		place={training.Parcours}
+	/>
 {/each}
