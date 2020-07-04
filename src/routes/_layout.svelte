@@ -9,13 +9,14 @@
 </main>
 <BottomNav {segment}/>
 
-<style>
+<style lang="scss">
+  @import '../globals.scss';
   body {
     overflow-x: hidden;
     position: relative;
   }
-  
+
   main {
-    margin-bottom: 3.5rem;
+    margin-bottom: $xl;
   }
 </style>

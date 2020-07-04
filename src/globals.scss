@@ -1,0 +1,19 @@
+// spacing
+$xs: 5px;
+$s: 8px;
+$m: 13px;
+$l: 21px;
+$xl: 34px;
+$big: 55px;
+
+//font-weight
+$bold: 700;
+
+// common classes
+.badge {
+  border-radius: $s;
+  border: 2px solid;
+  padding: $s;
+  font-size: $m;
+  font-weight: $bold;
+}
