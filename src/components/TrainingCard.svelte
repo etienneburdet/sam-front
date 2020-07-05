@@ -9,7 +9,7 @@
 <div class="card">
   <div class="card-header">
   <div class="plan">
-    <span class="badge">{plan}</span>
+    <span class="badge-plan">{plan}</span>
   </div>
     <h2>{title}</h2>
     <div class="spacer"></div>
@@ -17,9 +17,8 @@
   <div class="trainings">
     {#each workouts as workout}
       <div class="workout">
-        <p>
-          <strong class="badge">{workout.groupe}</strong>{workout.Description}
-        </p>
+          <span class="badge-workout">{workout.groupe}</span>
+          <span>{workout.Description}</span>
       </div>
     {/each}
   </div>
@@ -52,15 +51,11 @@
     align-items: center;
   }
 
-  .trainings {
-    padding: 0 $m;
-  }
-
   .card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 55px;
+    height: $big;
     background: #E6DAA6;
   }
 
@@ -68,7 +63,23 @@
     flex: 1;
   }
 
+  .trainings {
+    padding: $m;
+  }
+
+
   .workout {
+    margin: $s 0;
+  }
+
+  .badge-plan {
+    @extend %badge-base;
+  }
+
+  .badge-workout {
+    @extend %badge-base;
+    height: $s;
+    width: $s;
   }
 </style>
 

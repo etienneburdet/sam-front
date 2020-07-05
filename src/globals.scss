@@ -10,10 +10,13 @@ $big: 55px;
 $bold: 700;
 
 // common classes
-.badge {
-  border-radius: $s;
+%badge-base {
+  border-radius: $xs;
   border: 2px solid;
+  font-weight: $bold;
   padding: $s;
   font-size: $m;
-  font-weight: $bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
