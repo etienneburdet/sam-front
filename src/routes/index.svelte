@@ -7,7 +7,7 @@
 </script>
 
 <script>
-	import TrainingCard from '../components/TrainingCard.svelte'
+	import TrainingCard from '../components/training-card/index.svelte'
 	import Calendar from '../components/Calendar.svelte'
 	import BottomNav from '../components/BottomNav.svelte'
 	export let trainings

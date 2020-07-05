@@ -10,13 +10,25 @@ $big: 55px;
 $bold: 700;
 
 // common classes
-%badge-base {
+%badge {
   border-radius: $xs;
   border: 2px solid;
   font-weight: $bold;
-  padding: $s;
+  padding: $xs;
   font-size: $m;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 1px 1px 0 black;
+}
+
+%panned-background {
+  border-radius: $xs;
+  padding: 0 $m;
+  transform: rotate(-1deg);
+  * {
+    position: relative;
+    display: inline-block;
+    transform: rotate(1deg);
+  }
 }

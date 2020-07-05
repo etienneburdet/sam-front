@@ -11,10 +11,6 @@
 
 <style lang="scss">
   @import '../globals.scss';
-  body {
-    overflow-x: hidden;
-    position: relative;
-  }
 
   main {
     margin-bottom: $xl;
