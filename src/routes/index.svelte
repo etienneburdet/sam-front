@@ -15,12 +15,22 @@
 
 <Calendar/>
 
-{#each trainings as training}
-	<TrainingCard
-		plan={training.plan.Nom}
-		date={training.Date}
-		title={training.Nom}
-		workouts={training.Exercice}
-		place={training.Parcours}
-	/>
-{/each}
+<div>
+	{#each trainings as training}
+		<TrainingCard
+			plan={training.plan.Nom}
+			date={training.Date}
+			title={training.Nom}
+			workouts={training.Exercice}
+			place={training.Parcours}
+		/>
+	{/each}
+</div>
+
+<style lang="scss">
+	@import '../globals.scss';
+
+	div {
+		background: $grey-200;
+	}
+</style>

@@ -11,12 +11,11 @@
 
   div {
     @extend %panned-background;
-    background: #E6DAA6;
+    background: $beige;
   }
 
   span {
     font-size: $l;
-    font-weight: $bold;
     margin: 0;
   }
 </style>

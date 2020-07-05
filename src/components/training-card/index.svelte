@@ -30,8 +30,9 @@
   @import '../../globals.scss';
 
   .card {
+    background: white;
     width: 100vw;
-    border-bottom: 1px solid;
+    margin-bottom: $s;
     & > * {
       padding: 0 $l;
     }

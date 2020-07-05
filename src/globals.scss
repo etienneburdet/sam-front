@@ -8,18 +8,29 @@ $big: 55px;
 
 //font-weight
 $bold: 700;
+$light: 200;
+
+//colors
+$dark-beige: #F5E4C3;
+$beige: #FAF4D0;
+$red: #EA4C4C;
+$red-100: #EA4C4C1A;
+$dark-red: #C14545;
+$dark: #0E2431;
+
+$grey-200: #CFD8DC;
 
 // common classes
 %badge {
   border-radius: $xs;
-  border: 2px solid;
+  border: 2px solid $dark;
   font-weight: $bold;
   padding: $xs;
   font-size: $m;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 1px 1px 0 black;
+  box-shadow: 1px 1px 0 $dark;
 }
 
 %panned-background {
