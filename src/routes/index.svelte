@@ -14,7 +14,6 @@
 </script>
 
 <Calendar/>
-
 <div>
 	{#each trainings as training}
 		<TrainingCard
@@ -31,6 +30,6 @@
 	@import '../globals.scss';
 
 	div {
-		background: $grey-200;
+		background: $light;
 	}
 </style>

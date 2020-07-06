@@ -11,7 +11,7 @@
 
   div {
     @extend %panned-background;
-    background: $beige;
+    background: $accent;
   }
 
   span {

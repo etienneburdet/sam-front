@@ -3,7 +3,7 @@
 </script>
 
 <div>
-  <span class="">{plan}</span>
+  <span>{plan}</span>
 </div>
 
 <style lang="scss">
@@ -11,5 +11,7 @@
 
   div {
     @extend %badge;
+    border-color: $primary;
+    box-shadow: 1px 1px 0 $primary
   }
 </style>

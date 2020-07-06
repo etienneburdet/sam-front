@@ -22,5 +22,6 @@
     @extend %badge;
     height: $s;
     width: $s;
+    color: $dark;
   }
 </style>

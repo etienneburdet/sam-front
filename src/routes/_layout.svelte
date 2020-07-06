@@ -11,10 +11,6 @@
 
 <style lang="scss">
   @import '../globals.scss';
-
-  body {
-    font-color: $dark;
-  }
   
   main {
     margin-bottom: $xl;
