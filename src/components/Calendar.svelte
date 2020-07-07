@@ -4,6 +4,8 @@
   import WeekBar from './WeekBar.svelte'
   import { displayedDate } from './store.js'
 
+  export let trainingDates
+
   const today = new Date()
   $displayedDate = today
 
@@ -15,13 +17,15 @@
   Prochain entrainement
   </button>
   <MonthBar/>
-  <WeekBar/>
+  <WeekBar {trainingDates}/>
   <div>
     <ChevronDownIcon size="2x"/>
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  @import '../globals.scss';
+
   div {
     text-align: center;
   }
@@ -31,7 +35,7 @@
     top: 0;
     display: block;
     padding: 1rem 0.5rem 0.25rem 0.5rem;
-    background: red;
-    color: white;
+    background: $light;
+    color: $dark;
   }
 </style>

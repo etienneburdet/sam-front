@@ -2,9 +2,9 @@
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
   import { format, addDays,  addWeeks, startOfISOWeek, isSameDay, isAfter } from 'date-fns'
   import { displayedDate } from './store.js'
-  import { trainingDates } from '../routes/_trainings.js'
   import DateCard from './DateCard.svelte'
 
+  export let trainingDates
 
   let daysOfWeek
   let today = new Date()

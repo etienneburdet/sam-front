@@ -10,19 +10,25 @@
 	import TrainingCard from '../components/training-card/index.svelte'
 	import Calendar from '../components/Calendar.svelte'
 	import BottomNav from '../components/BottomNav.svelte'
+	import { displayedDate } from '../components/store.js'
+	import { isSameDay, parseISO } from 'date-fns'
+
 	export let trainings
+	let trainingDates = trainings.map(training => parseISO(training.Date))
 </script>
 
-<Calendar/>
+<Calendar {trainingDates}/>
 <div>
 	{#each trainings as training}
-		<TrainingCard
-			plan={training.plan.Nom}
-			date={training.Date}
-			title={training.Nom}
-			workouts={training.Exercice}
-			place={training.Parcours}
-		/>
+		{#if isSameDay(parseISO(training.Date), $displayedDate)}
+			<TrainingCard
+				plan={training.plan.Nom}
+				date={training.Date}
+				title={training.Nom}
+				workouts={training.Exercice}
+				place={training.Parcours}
+			/>
+		{/if}
 	{/each}
 </div>
 

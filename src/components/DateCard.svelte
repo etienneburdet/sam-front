@@ -8,7 +8,6 @@
 
   const setDisplayDate = () => {
     $displayedDate = day
-    console.log($displayedDate)
   }
 </script>
 

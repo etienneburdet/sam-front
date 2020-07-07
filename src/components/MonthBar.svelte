@@ -11,13 +11,13 @@
 </script>
 
 <div id="month">
-  <div class="arrow-left arrow" on:click={prevMonth}>
+  <!-- <div class="arrow-left arrow" on:click={prevMonth}>
     <TriangleIcon size="1x"/>
-  </div>
+  </div> -->
   <h2>{month}</h2>
-  <div class="arrow arrow-right" on:click={nextMonth}>
+  <!-- <div class="arrow arrow-right" on:click={nextMonth}>
     <TriangleIcon size="1x"/>
-  </div>
+  </div> -->
 </div>
 
 <style>
