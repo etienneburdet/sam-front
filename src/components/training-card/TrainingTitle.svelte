@@ -3,19 +3,9 @@
 </script>
 
 <div>
-  <span>{title}</span>
+  <h2>{title}</h2>
 </div>
 
 <style lang="scss">
   @import '../../globals.scss';
-
-  div {
-    @extend %panned-background;
-    background: $accent;
-  }
-
-  span {
-    font-size: $l;
-    margin: 0;
-  }
 </style>

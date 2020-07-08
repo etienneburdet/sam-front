@@ -3,37 +3,54 @@
   import { displayedDate } from './store.js'
 
   export let day
-  export let isNext
   export let isTraining
+  export let isDisplayed
 
   const setDisplayDate = () => {
     $displayedDate = day
   }
 </script>
 
-<div class:isNext class:isTraining on:click={setDisplayDate}>
-  <h6>{format(day, 'EE')}</h6>
-  <h3>{format(day, 'dd')}</h3>
+<div class:isTraining class:isDisplayed on:click={setDisplayDate}>
+  <p class="dayEE">{format(day, 'EE')}</p>
+  <p class="daydd">{format(day, 'dd')}</p>
 </div>
 
-<style>
-  .isNext {
-    opacity: 1;
-    color: black;
-    background: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  }
+<style lang="scss">
+  @import '../globals.scss';
 
   .isTraining {
-    opacity: 1;
-    border: 1px solid white;
-    border-radius: 1rem;
+    color: $grey-1000;
+  }
+
+  .isDisplayed {
+    @include badge($grey-800);
+    padding-top: $s;
+    padding-bottom: $s;
+  }
+
+  .dayEE {
+    font-size: $m;
+  }
+
+  .daydd {
+    font-size: $m;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 300;
   }
 
   div {
-    opacity: 0.75;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: $big;
+    color: $grey-500;
     text-align: center;
-    padding: 0.5rem;
+    padding: $s;
+    width: $xl;
+    border-radius: $xl;
   }
 </style>

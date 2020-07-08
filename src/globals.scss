@@ -13,6 +13,13 @@ $light: #F8F3E3;
 $accent: #F8C25C;
 $primary: #FF2047;
 
+$grey-300: #E2E8F0;
+$grey-500: #A0AEC0;
+$grey-800: #4A5568;
+$grey-1000: #1A202C;
+
+// $dark-200: adjust-color($dark, $lightness: +20%);
+
 %panned-background {
   border-radius: $xs;
   padding: 0 $m;
@@ -24,13 +31,11 @@ $primary: #FF2047;
   }
 }
 
-%badge {
-  border-radius: $xs;
-  border: 2px solid;
+@mixin badge($color) {
+  border-radius: $l;
+  border: 1px solid $color;
   font-weight: $bold;
   padding: $xs;
   font-size: $m;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  box-shadow: 1px 1px 0 $color;
 }

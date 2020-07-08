@@ -32,7 +32,8 @@
   .card {
     background: white;
     width: 100vw;
-    margin-bottom: $s;
+    margin: $s 0;
+    border: 1px solid $grey-500;
     & > * {
       padding: 0 $l;
     }

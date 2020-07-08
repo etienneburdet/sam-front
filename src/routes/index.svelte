@@ -36,6 +36,7 @@
 	@import '../globals.scss';
 
 	div {
-		background: $light;
+		background: blue;
+		height: 100%;
 	}
 </style>

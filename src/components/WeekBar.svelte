@@ -26,7 +26,7 @@
   </div>
   {#each daysOfWeek as day}
     <DateCard day={day}
-      isNext={isSameDay(day, nextTrainingDate)}
+      isDisplayed={isSameDay(day, $displayedDate)}
       isTraining={isTraining(day)}/>
   {/each}
   <div class="arrow-right arrow" on:click={nextWeek}>
@@ -34,21 +34,23 @@
   </div>
 </div>
 
-<style>
-#week {
-  display: flex;
-  justify-content: space-around;
-}
+<style lang="scss">
+  @import '../globals.scss';
 
-.arrow {
-  padding: 0.25rem;
-}
+  #week {
+    display: flex;
+    justify-content: center;
+  }
 
-.arrow-left {
-  transform: rotate(-90deg)
-}
+  .arrow {
+    padding: $s;
+  }
 
-.arrow-right {
-  transform: rotate(90deg)
-}
+  .arrow-left {
+    transform: rotate(-90deg)
+  }
+
+  .arrow-right {
+    transform: rotate(90deg)
+  }
 </style>

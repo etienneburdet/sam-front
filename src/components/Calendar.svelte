@@ -34,8 +34,9 @@
     position: sticky;
     top: 0;
     display: block;
-    padding: 1rem 0.5rem 0.25rem 0.5rem;
-    background: $light;
-    color: $dark;
+    padding: $s;
+    background: white;
+    color: $grey-1000;
+    border: 1px solid $grey-500;
   }
 </style>

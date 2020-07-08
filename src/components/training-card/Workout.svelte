@@ -19,7 +19,7 @@
   }
 
   .badge-group {
-    @extend %badge;
+    @include badge($grey-800);
     height: $s;
     width: $s;
     color: $dark;
