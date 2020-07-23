@@ -24,8 +24,6 @@
 </div>
 
 <style lang="scss">
-  @import '../globals.scss';
-
   div {
     text-align: center;
   }
@@ -35,8 +33,8 @@
     top: 0;
     display: block;
     padding: $s;
-    background: white;
-    color: $grey-1000;
+    background: $dark;
+    color: #fff;
     border: 1px solid $grey-500;
   }
 </style>

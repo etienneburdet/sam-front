@@ -16,7 +16,8 @@ const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /
 
 const preprocess = sveltePreprocess({
   scss: {
-    includePaths: ['src']
+    includePaths: ['src'],
+    data: `@import 'theme.scss';`
   },
   postcss: {
     plugins: [require('autoprefixer')],

@@ -16,7 +16,7 @@
     <TrainingTitle {title}/>
     <PlanBadge {plan}/>
   </div>
-  <div>
+  <div class="card-body">
     {#each workouts as workout}
       <Workout {workout}/>
     {/each}
@@ -27,8 +27,6 @@
 </div>
 
 <style lang="scss">
-  @import '../../globals.scss';
-
   .card {
     background: white;
     width: 100vw;

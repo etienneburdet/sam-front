@@ -8,8 +8,6 @@
 </div>
 
 <style lang="scss">
-  @import '../../globals.scss';
-
   div {
     margin: $s 0;
   }
@@ -20,8 +18,6 @@
 
   .badge-group {
     @include badge($grey-800);
-    height: $s;
-    width: $s;
-    color: $dark;
+    padding: $xs;
   }
 </style>

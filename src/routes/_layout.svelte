@@ -10,8 +10,6 @@
 <BottomNav {segment}/>
 
 <style lang="scss">
-  @import '../globals.scss';
-
   main {
     margin-bottom: $xl;
     min-height: 100vh;

@@ -7,7 +7,7 @@
   export let isDisplayed
 
   const setDisplayDate = () => {
-    $displayedDate = day
+    if (isTraining) { $displayedDate = day }
   }
 </script>
 
@@ -17,16 +17,33 @@
 </div>
 
 <style lang="scss">
-  @import '../globals.scss';
+  p {
+    margin: 0;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: $big;
+    color: $grey-500;
+    text-align: center;
+    padding: $s $xs;
+    width: $xl;
+    border-radius: $xl;
+    font-weight: $light;
+  }
 
   .isTraining {
-    color: $grey-1000;
+    color: #fff;
+    font-weight: $bold;
   }
 
   .isDisplayed {
-    @include badge($grey-800);
-    padding-top: $s;
-    padding-bottom: $s;
+    background: $primary;
+    color: #fff;
+    border-radius: $l;
+    padding: $m $s
   }
 
   .dayEE {
@@ -37,20 +54,4 @@
     font-size: $m;
   }
 
-  p {
-    margin: 0;
-    font-weight: 300;
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: $big;
-    color: $grey-500;
-    text-align: center;
-    padding: $s;
-    width: $xl;
-    border-radius: $xl;
-  }
 </style>

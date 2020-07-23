@@ -33,8 +33,6 @@
 </div>
 
 <style lang="scss">
-	@import '../globals.scss';
-
 	div {
 		background: blue;
 		height: 100%;

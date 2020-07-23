@@ -35,8 +35,6 @@
 </div>
 
 <style lang="scss">
-  @import '../globals.scss';
-
   #week {
     display: flex;
     justify-content: center;

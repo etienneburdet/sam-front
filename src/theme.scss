@@ -6,19 +6,22 @@ $xl: 34px;
 $big: 55px;
 
 $bold: 700;
-$light: 200;
+$light: 300;
 
-$dark: #242121;
-$light: #F8F3E3;
+// $dark: #242121;
+// $light: #F8F3E3;
 $accent: #F8C25C;
 $primary: #FF2047;
 
-$grey-300: #E2E8F0;
+$red-200: #FED7D7;
+$red-300: #FEB2B2;
+$red-800: #C53030;
+
+$grey-300: #f7fafc;
+$grey-400: #CBD5E0;
 $grey-500: #A0AEC0;
 $grey-800: #4A5568;
-$grey-1000: #1A202C;
-
-// $dark-200: adjust-color($dark, $lightness: +20%);
+$dark: #1A202C;
 
 %panned-background {
   border-radius: $xs;
@@ -33,9 +36,8 @@ $grey-1000: #1A202C;
 
 @mixin badge($color) {
   border-radius: $l;
-  border: 1px solid $color;
+  border: 2px solid $color;
   font-weight: $bold;
-  padding: $xs;
   font-size: $m;
   box-shadow: 1px 1px 0 $color;
 }
