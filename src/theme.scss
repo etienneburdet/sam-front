@@ -14,7 +14,7 @@ $accent: #F8C25C;
 $primary: #FF2047;
 
 $red-200: #FED7D7;
-$red-300: #FEB2B2;
+$red-300: #ffb0b0;
 $red-800: #C53030;
 
 $grey-300: #f7fafc;
@@ -37,7 +37,7 @@ $dark: #1A202C;
 
 @mixin badge($color) {
   color: $color;
-  border-radius: $l;
+  border-radius: $s;
   border: 2px solid $color;
   font-weight: $bold;
   font-size: $m;

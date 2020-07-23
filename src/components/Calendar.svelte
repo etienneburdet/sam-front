@@ -33,8 +33,8 @@
     top: 0;
     display: block;
     padding: $s;
-    background: $dark;
-    color: #fff;
+    background: $red-300;
+    color: $dark;
     border: 1px solid $grey-500;
   }
 </style>

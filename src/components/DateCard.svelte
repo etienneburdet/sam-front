@@ -26,24 +26,22 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: $big;
-    color: $grey-500;
+    color: $grey-800;
     text-align: center;
-    padding: $s $xs;
+    padding: $m $s;
     width: $xl;
     border-radius: $xl;
     font-weight: $light;
   }
 
   .isTraining {
-    color: #fff;
+    color: $dark;
     font-weight: $bold;
   }
 
   .isDisplayed {
-    @include badge(#fff)
-    background: $dark;
-    border-radius: $l;
-    padding: $m $s
+    @include badge($dark)
+    background: #fff;
   }
 
   .dayEE {
