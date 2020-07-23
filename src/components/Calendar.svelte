@@ -13,9 +13,9 @@
 </script>
 
 <div id="calendar">
-  <button on:click={backToToday}>
+  <!-- <button on:click={backToToday}>
   Prochain entrainement
-  </button>
+  </button> -->
   <MonthBar/>
   <WeekBar {trainingDates}/>
   <div>

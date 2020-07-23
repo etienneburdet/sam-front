@@ -23,9 +23,10 @@ $grey-500: #A0AEC0;
 $grey-800: #4A5568;
 $dark: #1A202C;
 
-%panned-background {
+@mixin panned-background($color) {
+  background: $color;
   border-radius: $xs;
-  padding: 0 $m;
+  // padding: 0 $m;
   transform: rotate(-1deg);
   * {
     position: relative;
@@ -35,6 +36,7 @@ $dark: #1A202C;
 }
 
 @mixin badge($color) {
+  color: $color;
   border-radius: $l;
   border: 2px solid $color;
   font-weight: $bold;

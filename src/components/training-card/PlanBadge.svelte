@@ -8,7 +8,7 @@
 
 <style lang="scss">
   div {
-    @include badge($accent);
+    @include panned-background($accent);
     padding: $s;
   }
 </style>

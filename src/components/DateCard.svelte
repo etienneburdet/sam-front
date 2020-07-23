@@ -40,8 +40,8 @@
   }
 
   .isDisplayed {
-    background: $primary;
-    color: #fff;
+    @include badge(#fff)
+    background: $dark;
     border-radius: $l;
     padding: $m $s
   }

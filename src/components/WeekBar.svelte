@@ -38,6 +38,7 @@
   #week {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .arrow {
@@ -45,10 +46,12 @@
   }
 
   .arrow-left {
-    transform: rotate(-90deg)
+    transform: rotate(-90deg);
+    flex-shrink: 1;
   }
 
   .arrow-right {
-    transform: rotate(90deg)
+    transform: rotate(90deg);
+    flex-shrink: 1 1;
   }
 </style>
