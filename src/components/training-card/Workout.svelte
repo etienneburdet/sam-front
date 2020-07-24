@@ -17,7 +17,13 @@
   }
 
   .badge-group {
-    @include badge($grey-800);
     padding: $xs;
+    &:before {
+      content:"";
+      display: block;
+      height: $s;
+      width: $s;
+      background: $primary;
+    }
   }
 </style>

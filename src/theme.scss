@@ -13,6 +13,8 @@ $light: 300;
 $accent: #F8C25C;
 $primary: #FF2047;
 
+$dark: #1A202C;
+
 $red-200: #FED7D7;
 $red-300: #ffb0b0;
 $red-800: #C53030;
@@ -20,7 +22,7 @@ $red-800: #C53030;
 $grey-300: #f9f9f9;
 $grey-500: #A0AEC0;
 $grey-800: #4A5568;
-$dark: #1A202C;
+
 
 $pastel-pink: #f5b5fc;
 $pastel-green: #96f7d2;
@@ -51,5 +53,5 @@ $pastel-orange: #fcb1b1;
   background: white;
   font-weight: $bold;
   font-size: $m;
-  box-shadow: 2px 2px 0 $color;
+  box-shadow: 1px 1px 0 $color;
 }
