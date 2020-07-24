@@ -34,7 +34,6 @@
 
 <style lang="scss">
 	div {
-		background: blue;
 		height: 100%;
 	}
 </style>

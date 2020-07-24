@@ -33,7 +33,7 @@
     top: 0;
     display: block;
     padding: $s;
-    background: $red-300;
+    background: white;
     color: $dark;
     border: 1px solid $grey-500;
   }

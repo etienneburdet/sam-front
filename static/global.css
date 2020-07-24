@@ -1,8 +1,8 @@
-@import url('/Quicksand-VariableFont_wght.ttf');
+@import url('/Mulish-VariableFont_wght.ttf');
 
 body {
 	margin: 0;
-	font-family: Quicksand, Roboto, sans-serif;
+	font-family: Mulish, sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;

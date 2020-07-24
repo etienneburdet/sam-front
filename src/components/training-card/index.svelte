@@ -28,10 +28,10 @@
 
 <style lang="scss">
   .card {
-    background: white;
+    background: transparent;
     width: 100vw;
     margin: $s 0;
-    border: 1px solid $grey-500;
+    border-bottom: 3px dotted $dark;
     & > * {
       padding: 0 $l;
     }

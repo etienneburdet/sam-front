@@ -17,29 +17,39 @@ $red-200: #FED7D7;
 $red-300: #ffb0b0;
 $red-800: #C53030;
 
-$grey-300: #f7fafc;
-$grey-400: #CBD5E0;
+$grey-300: #f9f9f9;
 $grey-500: #A0AEC0;
 $grey-800: #4A5568;
-$dark: #1A202C;
+$dark: #1A202C;
+
+$pastel-pink: #f5b5fc;
+$pastel-green: #96f7d2;
+$pastel-yellow: #f0f696;
+$pastel-orange: #fcb1b1;
+
+@mixin small-badge($color) {
+  border-radius: $xs;
+  background-color: $color;
+}
 
 @mixin panned-background($color) {
   background: $color;
   border-radius: $xs;
   // padding: 0 $m;
-  transform: rotate(-1deg);
+  transform: rotate(-3deg);
   * {
     position: relative;
     display: inline-block;
-    transform: rotate(1deg);
+    transform: rotate(3deg);
   }
 }
 
 @mixin badge($color) {
-  color: $color;
+  color: $dark;
   border-radius: $s;
-  border: 2px solid $color;
+  border: 1px solid $color;
+  background: white;
   font-weight: $bold;
   font-size: $m;
-  box-shadow: 1px 1px 0 $color;
+  box-shadow: 2px 2px 0 $color;
 }
