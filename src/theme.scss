@@ -11,7 +11,8 @@ $light: 300;
 // $dark: #242121;
 // $light: #F8F3E3;
 $accent: #F8C25C;
-$primary: #FF2047;
+// $primary: #FF2047;
+$primary: #c70039;
 
 $dark: #1A202C;
 
@@ -29,9 +30,15 @@ $pastel-green: #96f7d2;
 $pastel-yellow: #f0f696;
 $pastel-orange: #fcb1b1;
 
-@mixin small-badge($color) {
+@mixin small-badge($background, $color) {
   border-radius: $xs;
-  background-color: $color;
+  background-color: $background;
+  color: $color;
+  font-family: inconsolata, monospace;
+  font-weight: 600;
+  display: block;
+  padding: 0 $s;
+  margin: 0 $s
 }
 
 @mixin panned-background($color) {

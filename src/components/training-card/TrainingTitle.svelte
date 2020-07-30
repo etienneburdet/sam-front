@@ -3,12 +3,18 @@
 </script>
 
 <div>
-  <h2>{title}</h2>
+  <h2><span class="slashes">///</span>{title}</h2>
 </div>
 
 <style lang="scss">
   h2 {
-    box-shadow: 0px -6px 0px $primary inset;
     line-height: $l;
+    font-size: $l;
+    font-weight: $bold;
+  }
+
+  .slashes {
+    font-weight: $bold;
+    color: $primary;
   }
 </style>

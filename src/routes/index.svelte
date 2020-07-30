@@ -19,8 +19,15 @@
 
 <Calendar {trainingDates}/>
 <div>
-	{#each trainings as training}
+{#each trainings as training}
 		{#if isSameDay(parseISO(training.Date), $displayedDate)}
+			<TrainingCard
+				plan={training.plan.Nom}
+				date={training.Date}
+				title={training.Nom}
+				workouts={training.Exercice}
+				place={training.Parcours}
+			/>
 			<TrainingCard
 				plan={training.plan.Nom}
 				date={training.Date}
@@ -35,5 +42,6 @@
 <style lang="scss">
 	div {
 		height: 100%;
+		padding: $s $xl;
 	}
 </style>

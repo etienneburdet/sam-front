@@ -2,7 +2,7 @@
   export let place
 </script>
 
-<p>{place}</p>
+{place}
 
 <style lang="scss">
   p {

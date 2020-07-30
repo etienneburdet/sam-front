@@ -9,18 +9,11 @@
   const today = new Date()
   $displayedDate = today
 
-  const backToToday= () => console.log('return today');
 </script>
 
 <div id="calendar">
-  <!-- <button on:click={backToToday}>
-  Prochain entrainement
-  </button> -->
   <MonthBar/>
   <WeekBar {trainingDates}/>
-  <div>
-    <ChevronDownIcon size="2x"/>
-  </div>
 </div>
 
 <style lang="scss">
@@ -32,7 +25,7 @@
     position: sticky;
     top: 0;
     display: block;
-    padding: $s;
+    padding: $s $big;
     background: white;
     color: $dark;
     border: 1px solid $grey-500;

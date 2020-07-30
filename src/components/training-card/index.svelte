@@ -16,11 +16,11 @@
     <TrainingTitle {title}/>
     <PlanBadge {plan}/>
   </div>
-  <div class="card-body">
+  <ul>
     {#each workouts as workout}
       <Workout {workout}/>
     {/each}
-  </div>
+  </ul>
   <div class="card-footer">
     <Route {place}/>
   </div>
@@ -29,12 +29,21 @@
 <style lang="scss">
   .card {
     background: transparent;
-    width: 100vw;
-    margin: $s 0;
-    border-bottom: 3px dotted $dark;
-    & > * {
-      padding: 0 $l;
+    width: 100%;
+    padding: $m 0;
+    &:after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      border-bottom: 3px dotted $dark;
+      padding-top: $s;
     }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
   }
 
   .card-footer {
@@ -45,8 +54,7 @@
 
   .card-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: $big;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 </style>

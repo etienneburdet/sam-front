@@ -40,7 +40,7 @@
   }
 
   .isDisplayed {
-    @include badge($red-800)
+    @include badge($primary)
   }
 
   .dayEE {

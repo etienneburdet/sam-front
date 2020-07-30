@@ -8,34 +8,28 @@
 
   const prevMonth = () => $displayedDate = addMonths($displayedDate, -1)
   const nextMonth = () => $displayedDate = addMonths($displayedDate, 1)
+  const backToToday= () => console.log('return today');
 </script>
 
 <div id="month">
-  <!-- <div class="arrow-left arrow" on:click={prevMonth}>
-    <TriangleIcon size="1x"/>
-  </div> -->
   <h2>{month}</h2>
-  <!-- <div class="arrow arrow-right" on:click={nextMonth}>
-    <TriangleIcon size="1x"/>
-  </div> -->
+  <button on:click={backToToday}>
+  Prochain entrainement
+  </button>
 </div>
 
 <style>
   #month {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: baseline;
+  }
+
+  h2 {
+    margin-left: 34px;
   }
 
   .arrow {
     padding: 0.25rem;
-  }
-
-  .arrow-left {
-    transform: rotate(-90deg)
-  }
-
-  .arrow-right {
-    transform: rotate(90deg)
   }
 </style>

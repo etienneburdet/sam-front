@@ -8,7 +8,6 @@
 
 <style lang="scss">
   div {
-    @include small-badge($pastel-pink);
-    padding: $s;
+    @include small-badge($pastel-pink, $dark);
   }
 </style>
