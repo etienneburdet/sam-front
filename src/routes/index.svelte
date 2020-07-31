@@ -28,13 +28,6 @@
 				workouts={training.Exercice}
 				place={training.Parcours}
 			/>
-			<TrainingCard
-				plan={training.plan.Nom}
-				date={training.Date}
-				title={training.Nom}
-				workouts={training.Exercice}
-				place={training.Parcours}
-			/>
 		{/if}
 	{/each}
 </div>

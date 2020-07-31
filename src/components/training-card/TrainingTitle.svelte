@@ -14,7 +14,7 @@
   }
 
   .slashes {
-    font-weight: $bold;
+    font-weight: $light;
     color: $primary;
   }
 </style>
