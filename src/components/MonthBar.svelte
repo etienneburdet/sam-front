@@ -1,13 +1,13 @@
 <script>
   import { TriangleIcon } from 'svelte-feather-icons'
   import { format, addMonths } from 'date-fns'
-  import { displayedDate } from './store.js'
+  import { displayedDay } from './store.js'
 
   let month
-  $: month = format($displayedDate, 'MMMM')
+  $: month = format($displayedDay, 'MMMM')
 
-  const prevMonth = () => $displayedDate = addMonths($displayedDate, -1)
-  const nextMonth = () => $displayedDate = addMonths($displayedDate, 1)
+  const prevMonth = () => $displayedDay = addMonths($displayedDay, -1)
+  const nextMonth = () => $displayedDay = addMonths($displayedDay, 1)
   const backToToday= () => console.log('return today');
 </script>
 

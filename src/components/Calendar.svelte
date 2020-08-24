@@ -1,19 +1,14 @@
 <script>
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
+  import { isAfter } from 'date-fns'
   import MonthBar from './MonthBar.svelte'
   import WeekBar from './WeekBar.svelte'
-  import { displayedDate } from './store.js'
-
-  export let trainingDates
-
-  const today = new Date()
-  $displayedDate = today
-
+  import { displayedDay, trainingDates } from './store.js'
 </script>
 
 <div id="calendar">
   <MonthBar/>
-  <WeekBar {trainingDates}/>
+  <WeekBar/>
 </div>
 
 <style lang="scss">

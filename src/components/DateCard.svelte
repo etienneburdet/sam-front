@@ -1,13 +1,13 @@
 <script>
   import format from 'date-fns/format'
-  import { displayedDate } from './store.js'
+  import { displayedDay } from './store.js'
 
   export let day
   export let isTraining
   export let isDisplayed
 
   const setDisplayDate = () => {
-    if (isTraining) { $displayedDate = day }
+    if (isTraining) { $displayedDay = day }
   }
 </script>
 

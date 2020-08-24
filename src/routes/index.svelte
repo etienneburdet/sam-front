@@ -1,26 +1,27 @@
 <script context="module">
 	export async function preload() {
 		const res = await this.fetch(`http://localhost:1337/entrainements`)
-		const trainings = await res.json()
-		return { trainings }
+		const trainingsFromServ = await res.json()
+		return { trainingsFromServ }
 	}
 </script>
 
 <script>
-	import TrainingCard from '../components/training-card/index.svelte'
-	import Calendar from '../components/Calendar.svelte'
-	import BottomNav from '../components/BottomNav.svelte'
-	import { displayedDate } from '../components/store.js'
-	import { isSameDay, parseISO } from 'date-fns'
+import { onMount } from 'svelte'
+import TrainingCard from '../components/training-card/index.svelte'
+import Calendar from '../components/Calendar.svelte'
+import BottomNav from '../components/BottomNav.svelte'
+import { displayedDay, trainings } from '../components/store.js'
+import { isSameDay, parseISO } from 'date-fns'
 
-	export let trainings
-	let trainingDates = trainings.map(training => parseISO(training.Date))
+export let trainingsFromServ
+onMount(() => {$trainings = trainingsFromServ})
 </script>
 
-<Calendar {trainingDates}/>
+<Calendar/>
 <div>
-{#each trainings as training}
-		{#if isSameDay(parseISO(training.Date), $displayedDate)}
+{#each $trainings as training}
+		{#if isSameDay(parseISO(training.Date), $displayedDay)}
 			<TrainingCard
 				plan={training.plan.Nom}
 				date={training.Date}

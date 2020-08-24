@@ -1,35 +1,25 @@
 <script>
   import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
   import { format, addDays,  addWeeks, startOfISOWeek, isSameDay, isAfter } from 'date-fns'
-  import { displayedDate } from './store.js'
+  import { displayedDay, displayedWeek, trainingDates } from './store.js'
   import DateCard from './DateCard.svelte'
+  // const nextTrainingDate = trainingDates.find(date => isAfter(date, $displayedWeek.getMonday()))
+  const isTraining = (day) => $trainingDates.find(date => isSameDay(day, date))
 
-  export let trainingDates
-
-  let daysOfWeek
-  let today = new Date()
-  $: daysOfWeek = [...Array(7)].map((el, i) => {
-    const monday = startOfISOWeek($displayedDate)
-    return addDays(monday, i)
-  })
-
-  const nextTrainingDate = trainingDates.find(date => isAfter(date, today))
-  const isTraining = (day) => trainingDates.find(date => isSameDay(day, date))
-
-  const prevWeek = () => $displayedDate = addWeeks($displayedDate, -1)
-  const nextWeek = () => $displayedDate = addWeeks($displayedDate, 1)
+  // const prevWeek = () => $displayedDay = addWeeks($displayedDay, -1)
+  // const nextWeek = () => $displayedDay = addWeeks($displayedDay, 1)
 </script>
 
 <div id="week">
-  <div class="arrow-left arrow" on:click={prevWeek}>
+  <div class="arrow-left arrow" on:click={displayedWeek.prevWeek}>
     <TriangleIcon size="1x"/>
   </div>
-  {#each daysOfWeek as day}
+  {#each $displayedWeek as day}
     <DateCard day={day}
-      isDisplayed={isSameDay(day, $displayedDate)}
+      isDisplayed={isSameDay(day, $displayedDay)}
       isTraining={isTraining(day)}/>
   {/each}
-  <div class="arrow-right arrow" on:click={nextWeek}>
+  <div class="arrow-right arrow" on:click={displayedWeek.nextWeek}>
     <TriangleIcon size="1x"/>
   </div>
 </div>
