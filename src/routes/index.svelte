@@ -20,7 +20,7 @@ onMount(() => {$trainings = trainingsFromServ})
 
 <Calendar/>
 <div>
-{#each $trainings as training}
+	{#each $trainings as training}
 		{#if isSameDay(parseISO(training.Date), $displayedDay)}
 			<TrainingCard
 				plan={training.plan.Nom}

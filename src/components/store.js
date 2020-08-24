@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store'
-import { addWeeks, startOfISOWeek, addDays, parseISO } from 'date-fns'
+import { addWeeks, startOfISOWeek, addDays, parseISO, isSameDay } from 'date-fns'
 
 const initWeek = () => {
   const today = new Date()
@@ -12,13 +12,16 @@ const initWeek = () => {
 
   return {
     subscribe,
-    nextWeek: () => update(week => week.map(day => addWeeks(day, 1))),
-    prevWeek: () => update(week => week.map(day => addWeeks(day, -1))),
-    reset: () => set(daysOfWeek)
+    nextWeek() { update(week => week.map(day => addWeeks(day, 1))) },
+    prevWeek() { update(week => week.map(day => addWeeks(day, -1)))},
+    reset() { set(daysOfWeek) }
   }
 }
 
-const getTrainingDates = $trainings => $trainings.map(training => parseISO(training.Date))
+const getTrainingDates = $trainings => {
+  const trainingDates = $trainings.map(training => parseISO(training.Date))
+  return trainingDates
+}
 
 export const displayedDay = writable(new Date())
 export const trainings = writable([])
