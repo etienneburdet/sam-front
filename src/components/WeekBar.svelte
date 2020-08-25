@@ -1,11 +1,11 @@
 <script>
-  import { onMount } from 'svelte'
-  import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
-  import { isSameDay, isAfter } from 'date-fns'
-  import { displayedDay, displayedWeek, trainingDates } from './store.js'
-  import DateCard from './DateCard.svelte'
+import { onMount } from 'svelte'
+import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
+import { isSameDay, isAfter, parseISO } from 'date-fns'
+import { displayedDay, displayedWeek, weekTrainingDates } from './store.js'
+import DateCard from './DateCard.svelte'
 
-  const isTraining = (day, dates) => dates.find(date => isSameDay(day, date))
+const isTraining = (day, dates) => dates.find(date => isSameDay(date, day))
 </script>
 
 <div id="week">
@@ -15,7 +15,7 @@
   {#each $displayedWeek as day}
     <DateCard day={ day }
       isDisplayed={ isSameDay(day, $displayedDay) }
-      isTraining={ isTraining(day, $trainingDates) }/>
+      isTraining={ isTraining(day, $weekTrainingDates) }/>
   {/each}
   <div class="arrow-right arrow" on:click={displayedWeek.nextWeek}>
     <TriangleIcon size="1x"/>

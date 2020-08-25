@@ -11,11 +11,14 @@ import { onMount } from 'svelte'
 import TrainingCard from '../components/training-card/index.svelte'
 import Calendar from '../components/Calendar.svelte'
 import BottomNav from '../components/BottomNav.svelte'
-import { displayedDay, trainings } from '../components/store.js'
+import { displayedDay, weekTrainingDates, trainings } from '../components/store.js'
 import { isSameDay, parseISO } from 'date-fns'
 
 export let trainingsFromServ
-onMount(() => {$trainings = trainingsFromServ})
+onMount(() => {
+	$trainings = trainingsFromServ
+	// console.log($weekTrainingDates)
+})
 </script>
 
 <Calendar/>
