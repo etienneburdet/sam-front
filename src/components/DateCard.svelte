@@ -6,12 +6,12 @@
   export let isTraining
   export let isDisplayed
 
-  const setDisplayDate = () => {
+  const setDisplayDay = () => {
     if (isTraining) { $displayedDay = day }
   }
 </script>
 
-<div class:isTraining class:isDisplayed on:click={setDisplayDate}>
+<div class:isTraining class:isDisplayed on:click={setDisplayDay}>
   <p class="dayEE">{format(day, 'EE')}</p>
   <p class="daydd">{format(day, 'dd')}</p>
 </div>

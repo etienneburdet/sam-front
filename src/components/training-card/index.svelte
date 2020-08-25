@@ -1,22 +1,24 @@
 <script>
-  import PlanBadge from './PlanBadge.svelte'
-  import TrainingTitle from './TrainingTitle.svelte'
-  import Workout from './Workout.svelte'
-  import Route from './Route.svelte'
+import { fade } from 'svelte/transition'
 
-  export let date
-  export let plan = 'Plan'
-  export let title = 'Titre séance'
-  export let workouts = []
-  export let place = 'Lieu'
+import PlanBadge from './PlanBadge.svelte'
+import TrainingTitle from './TrainingTitle.svelte'
+import Workout from './Workout.svelte'
+import Route from './Route.svelte'
+
+export let date
+export let plan = 'Plan'
+export let title = 'Titre séance'
+export let workouts = []
+export let place = 'Lieu'
 </script>
 
-<div class="card">
+<div class="card" in:fade={{ duration: 100, delay: 100 }} out:fade={{ duration: 100 }}>
   <div class="card-header">
     <TrainingTitle {title}/>
     <PlanBadge {plan}/>
   </div>
-  <ul>
+  <ul on:mouseenter={() => console.log('pouet')}>
     {#each workouts as workout}
       <Workout {workout}/>
     {/each}
@@ -34,7 +36,7 @@
     &:not(:last-child):after {
       content: "";
       display: block;
-      margin: 0 auto;
+      margin: 13px 0 auto;
       width: 100%;
       border-bottom: 3px dotted $dark;
       padding-top: $s;

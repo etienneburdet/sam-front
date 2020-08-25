@@ -25,7 +25,7 @@ onMount(() => {
 
 <Calendar/>
 <div>
-	{#each $displayedTrainings as training}
+	{#each $displayedTrainings as training (training.id)}
 		<TrainingCard
 			plan={training.plan.Nom}
 			date={training.Date}
