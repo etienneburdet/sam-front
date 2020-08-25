@@ -1,18 +1,19 @@
 import { writable, derived, get } from 'svelte/store'
-import { addWeeks, startOfISOWeek, addDays, parseISO, isSameDay, isAfter } from 'date-fns'
-import { isSameWeek } from 'date-fns/esm//fp'
+import { addWeeks, startOfISOWeek, addDays, parseISO, isAfter } from 'date-fns'
+import { isSameWeek, isSameDay } from 'date-fns/esm//fp'
 
 const getWeekTrainingDates = ([$displayedWeek, $trainings]) => {
   const isThisWeek = isSameWeek($displayedWeek[0])
   const trainingDates = $trainings.map(training => parseISO(training.Date))
   const weekTrainingDates = trainingDates.filter(date => isThisWeek(date))
-  return weekTrainingDates
+  const orderedWeekDates = weekTrainingDates.sort((a, b) => isAfter(a, b))
+  return orderedWeekDates
 }
 
 const findNextTraining = (dates, monday) => dates.find(date => isAfter(date, monday))
 
 const filterDayTrainings = ([$displayedDay, $trainings]) => {
-  const isOnDisplayedDay = isSameDay($displayDay)
+  const isOnDisplayedDay = isSameDay($displayedDay)
   const filter = training => isOnDisplayedDay(parseISO(training.Date))
   return $trainings.filter(filter)
 }
@@ -28,10 +29,8 @@ const initWeek = () => {
 
   const addWeek = (num) => () => {
     update(week => week.map(day => addWeeks(day, num)))
-    const currentMonday = startOfISOWeek(get(displayedDay))
-    const monday = addWeeks(currentMonday, num)
     const dates = get(weekTrainingDates)
-    displayedDay.set(findNextTraining(dates, monday) || null)
+    displayedDay.set(dates[0] || null)
   }
 
   return {
@@ -47,4 +46,4 @@ export const trainings = writable([])
 export const displayedWeek = initWeek()
 export const weekTrainingDates = derived([displayedWeek, trainings], getWeekTrainingDates)
 export const displayedDay = writable(new Date)
-export const dispayedTrainings = derived([trainings, displayedDay], filterDayTrainings)
+export const displayedTrainings = derived([displayedDay, trainings], filterDayTrainings)

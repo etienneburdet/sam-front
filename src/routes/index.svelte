@@ -8,31 +8,31 @@
 
 <script>
 import { onMount } from 'svelte'
+import { isSameDay, parseISO } from 'date-fns'
+
 import TrainingCard from '../components/training-card/index.svelte'
 import Calendar from '../components/Calendar.svelte'
 import BottomNav from '../components/BottomNav.svelte'
-import { displayedDay, weekTrainingDates, trainings } from '../components/store.js'
-import { isSameDay, parseISO } from 'date-fns'
+
+import { displayedDay, weekTrainingDates, trainings, displayedTrainings } from '../components/store.js'
 
 export let trainingsFromServ
 onMount(() => {
 	$trainings = trainingsFromServ
-	// console.log($weekTrainingDates)
+	$displayedDay = $weekTrainingDates[0]
 })
 </script>
 
 <Calendar/>
 <div>
-	{#each $trainings as training}
-		{#if isSameDay(parseISO(training.Date), $displayedDay)}
-			<TrainingCard
-				plan={training.plan.Nom}
-				date={training.Date}
-				title={training.Nom}
-				workouts={training.Exercice}
-				place={training.Parcours}
-			/>
-		{/if}
+	{#each $displayedTrainings as training}
+		<TrainingCard
+			plan={training.plan.Nom}
+			date={training.Date}
+			title={training.Nom}
+			workouts={training.Exercice}
+			place={training.Parcours}
+		/>
 	{/each}
 </div>
 
