@@ -31,7 +31,7 @@
     background: transparent;
     width: 100%;
     padding: $m 0;
-    &:after {
+    &:not(:last-child):after {
       content: "";
       display: block;
       margin: 0 auto;
