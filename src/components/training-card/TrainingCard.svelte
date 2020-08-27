@@ -7,7 +7,7 @@ import Workout from './Workout.svelte'
 import Route from './Route.svelte'
 
 export let date
-export let plan = 'Plan'
+export let plan = {}
 export let title = 'Titre séance'
 export let workouts = []
 export let place = 'Lieu'
@@ -55,8 +55,9 @@ export let place = 'Lieu'
   }
 
   .card-header {
-    display: flex;
-    align-items: flex-start;
+    display: inline-flex;
+    align-items: center;
     justify-content: flex-start;
+    line-height: 21px;
   }
 </style>

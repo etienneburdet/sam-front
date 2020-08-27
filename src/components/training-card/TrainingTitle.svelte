@@ -2,15 +2,14 @@
   export let title
 </script>
 
-<div>
-  <h2><span class="slashes">///</span>{title}</h2>
-</div>
+<h2><span class="slashes">///</span>{title}</h2>
 
 <style lang="scss">
   h2 {
     line-height: $l;
     font-size: $l;
     font-weight: $bold;
+    margin-bottom: 0;
   }
 
   .slashes {

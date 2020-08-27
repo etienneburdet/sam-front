@@ -10,7 +10,7 @@
 import { onMount } from 'svelte'
 import { isSameDay, parseISO } from 'date-fns'
 
-import TrainingCard from '../components/training-card/index.svelte'
+import TrainingCard from '../components/training-card/TrainingCard.svelte'
 import Calendar from '../components/Calendar.svelte'
 import BottomNav from '../components/BottomNav.svelte'
 
@@ -27,7 +27,7 @@ onMount(() => {
 <div>
 	{#each $displayedTrainings as training (training.id)}
 		<TrainingCard
-			plan={training.plan.Nom}
+			plan={training.plan}
 			date={training.Date}
 			title={training.Nom}
 			workouts={training.Exercice}

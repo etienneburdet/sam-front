@@ -2,12 +2,10 @@
   export let plan
 </script>
 
-<div>
-  <span>{plan}</span>
-</div>
+<span style="--color: {plan.color};">{plan.Nom}</span>
 
 <style lang="scss">
-  div {
-    @include small-badge($pastel-pink, $dark);
+  span {
+    @include small-badge(var(--color), $dark);
   }
 </style>
