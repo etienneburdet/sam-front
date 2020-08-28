@@ -10,8 +10,6 @@ const getWeekTrainingDates = ([$displayedWeek, $trainings]) => {
   return orderedWeekDates
 }
 
-const findNextTraining = (dates, monday) => dates.find(date => isAfter(date, monday))
-
 const filterDayTrainings = ([$displayedDay, $trainings]) => {
   const isOnDisplayedDay = isSameDay($displayedDay)
   const filter = training => isOnDisplayedDay(parseISO(training.Date))
@@ -37,13 +35,12 @@ const initWeek = () => {
     subscribe,
     nextWeek: addWeek(1),
     prevWeek: addWeek(-1),
-    reset() { set(daysOfWeek) }
+    reset () { set(daysOfTodaysWeek) }
   }
 }
-
 
 export const trainings = writable([])
 export const displayedWeek = initWeek()
 export const weekTrainingDates = derived([displayedWeek, trainings], getWeekTrainingDates)
-export const displayedDay = writable(new Date)
+export const displayedDay = writable(new Date())
 export const displayedTrainings = derived([displayedDay, trainings], filterDayTrainings)

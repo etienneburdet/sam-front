@@ -6,7 +6,6 @@ import TrainingTitle from './TrainingTitle.svelte'
 import Workout from './Workout.svelte'
 import Route from './Route.svelte'
 
-export let date
 export let plan = {}
 export let title = 'Titre séance'
 export let workouts = []
@@ -18,7 +17,7 @@ export let place = 'Lieu'
     <TrainingTitle {title}/>
     <PlanBadge {plan}/>
   </div>
-  <ul on:mouseenter={() => console.log('pouet')}>
+  <ul>
     {#each workouts as workout}
       <Workout {workout}/>
     {/each}

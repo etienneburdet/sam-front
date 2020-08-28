@@ -1,5 +1,5 @@
 <script>
-import { format, addMonths } from 'date-fns'
+import { format } from 'date-fns'
 import { displayedWeek } from './store.js'
 
 let month
@@ -22,9 +22,5 @@ $: month = format($displayedWeek[0], 'MMMM')
 
   h2 {
     margin-left: 34px;
-  }
-
-  .arrow {
-    padding: 0.25rem;
   }
 </style>
