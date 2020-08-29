@@ -3,7 +3,7 @@
 </script>
 
 <li>
-    <span class="group">Groupe {workout.groupe}</span>
+    <span class="group">{workout.groupe}</span>
     <span>{workout.Description}</span>
 </li>
 
