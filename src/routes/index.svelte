@@ -13,7 +13,6 @@ import { isSameDay, parseISO } from 'date-fns'
 
 import TrainingCard from '../components/training-card/TrainingCard.svelte'
 import Calendar from '../components/Calendar.svelte'
-import BottomNav from '../components/BottomNav.svelte'
 
 import { displayedDay, weekTrainingDates, trainings, displayedTrainings } from '../components/store.js'
 
@@ -40,6 +39,6 @@ onMount(() => {
 <style lang="scss">
 	div {
 		height: 100%;
-		padding: $s $xl;
+		padding: $s $l;
 	}
 </style>

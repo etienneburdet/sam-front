@@ -1,16 +1,28 @@
 <script>
-import { format } from 'date-fns'
+import { format, isAfter, closestTo } from 'date-fns'
 import { fr } from 'date-fns/locale'
-import { displayedWeek } from './store.js'
+import { RefreshCwIcon } from 'svelte-feather-icons'
+
+import { displayedWeek, weekTrainingDates, displayedDay } from './store.js'
 
 let month
 $: month = format($displayedWeek[0], 'MMMM', { locale: fr }).replace(/^\w/, c => c.toUpperCase())
+
+const backToNextTraining = () => {
+  displayedWeek.reset()
+  const now = new Date()
+  const futureTrainings = $weekTrainingDates.filter(date => isAfter(date, now))
+  futureTrainings[0]
+    ? $displayedDay = futureTrainings[0]
+    : $displayedDay = closestTo(now, $weekTrainingDates)
+}
 </script>
 
 <div id="month">
   <h2>{month}</h2>
-  <button>
-  Prochain entrainement
+  <button on:click={backToNextTraining}>
+    <RefreshCwIcon  size="1x"/>
+    Prochain entrainement
   </button>
 </div>
 
@@ -20,8 +32,9 @@ $: month = format($displayedWeek[0], 'MMMM', { locale: fr }).replace(/^\w/, c =>
     justify-content: space-between;
     align-items: baseline;
   }
-
-  h2 {
-    margin-left: 34px;
+  
+  button {
+    border: none;
+    background: white;
   }
 </style>

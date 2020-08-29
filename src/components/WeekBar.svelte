@@ -1,7 +1,7 @@
 <script>
 import { onMount } from 'svelte'
 import { fly } from 'svelte/transition'
-import { ChevronDownIcon, TriangleIcon } from 'svelte-feather-icons'
+import { TriangleIcon } from 'svelte-feather-icons'
 import { isSameDay, isAfter, parseISO } from 'date-fns'
 
 import DateCard from './DateCard.svelte'
