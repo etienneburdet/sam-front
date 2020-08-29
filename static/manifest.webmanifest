@@ -3,7 +3,7 @@
 	"theme_color": "#c70039;",
 	"name": "Entrainements SAM PARIS 12",
 	"short_name": "SAM",
-	"description" "Une appli pour connaitres le programme d'entrainement de la SAM",
+	"description": "Une appli pour connaitres le programme d'entrainement de la SAM",
 	"categories": ["sport", "fitness", "calendar"],
 	"display": "standalone",
 	"orientation": "portrait",
