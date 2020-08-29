@@ -39,18 +39,6 @@ $pastel-orange: #fcb1b1;
   margin: 0 $s
 }
 
-@mixin panned-background($color) {
-  background: $color;
-  border-radius: $xs;
-  // padding: 0 $m;
-  transform: rotate(-3deg);
-  * {
-    position: relative;
-    display: inline-block;
-    transform: rotate(3deg);
-  }
-}
-
 @mixin badge($color) {
   color: $dark;
   border-radius: $s;
@@ -59,4 +47,15 @@ $pastel-orange: #fcb1b1;
   font-weight: $bold;
   font-size: $m;
   box-shadow: 1px 1px 0 $color;
+}
+
+@mixin panned-background($color) {
+  background: $color;
+  border-radius: $xs;
+  transform: rotate(-3deg);
+  * {
+    position: relative;
+    display: inline-block;
+    transform: rotate(3deg);
+  }
 }
