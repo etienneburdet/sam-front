@@ -5,11 +5,11 @@
 	"short_name": "SAM",
 	"description": "Une appli pour connaitres les entrainement de la SAM",
 	"display": "standalone",
-	"orientation": "portrait",
+	"orientation": "portrait",
 	"dir": "ltr",
 	"lang": "fr",
 	"start_url": "/",
-	"scope", "/",
+	"scope": "/",
 	"icons": [
 		"icons": [
 		{
