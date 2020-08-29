@@ -1,10 +1,14 @@
 <script>
-  import format from 'date-fns/format'
+  import { format } from 'date-fns'
+  import { fr } from 'date-fns/locale'
+
   import { displayedDay } from './store.js'
 
   export let day
   export let isTraining
   export let isDisplayed
+
+  $: dayEE = format(day, 'EE', { locale: fr }).replace(/^\w/, c => c.toUpperCase())
 
   const setDisplayDay = () => {
     if (isTraining) { $displayedDay = day }
@@ -12,8 +16,8 @@
 </script>
 
 <div class:isTraining class:isDisplayed on:click={setDisplayDay}>
-  <p class="dayEE">{format(day, 'EE')}</p>
-  <p class="daydd">{format(day, 'dd')}</p>
+  <p class="dayEE">{dayEE}</p>
+  <p class="daydd">{format(day, 'dd', { locale: fr })}</p>
 </div>
 
 <style lang="scss">

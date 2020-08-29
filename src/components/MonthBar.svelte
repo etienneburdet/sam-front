@@ -1,9 +1,10 @@
 <script>
 import { format } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import { displayedWeek } from './store.js'
 
 let month
-$: month = format($displayedWeek[0], 'MMMM')
+$: month = format($displayedWeek[0], 'MMMM', { locale: fr }).replace(/^\w/, c => c.toUpperCase())
 </script>
 
 <div id="month">
