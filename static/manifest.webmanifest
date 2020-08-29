@@ -6,12 +6,11 @@
 	"description": "Une appli pour connaitres les entrainement de la SAM",
 	"display": "standalone",
 	"orientation": "portrait",
-	"dir": "ltr",
+	"dir": "ltr",
 	"lang": "fr",
 	"start_url": "/",
 	"scope": "/",
 	"icons": [
-		"icons": [
 		{
 				"src": "/android-chrome-96x96.png",
 				"sizes": "96x96",
