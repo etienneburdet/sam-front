@@ -1682,6 +1682,11 @@
   dependencies:
     "@types/node" "*"
 
+"@vercel/node-bridge@^1.3.0":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@vercel/node-bridge/-/node-bridge-1.3.1.tgz#6f896493b3a1a21e38c8733cfb7aacb5e4f8f8bd"
+  integrity sha512-bKE7Z1haZuJAtsnrBUM6Bmm9uhRIavMdXXkat4w0RKzjLXgfjW+vvtm/J8xQUSuseOXf1sEC9345IcB5XwynRA==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -4741,6 +4746,14 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vercel-sapper@^0.43.0:
+  version "0.43.0"
+  resolved "https://registry.yarnpkg.com/vercel-sapper/-/vercel-sapper-0.43.0.tgz#5128884f2e91fe16a1ffb232aeab5528bb1ea94b"
+  integrity sha512-LRZ+mNDPVgNfoPcdIPbM9u8vnw+cLsZhw2s6mHJkvnKPMiSYs84sMEinm8E88smhyYZMebVEjaC5gJanpuGjEg==
+  dependencies:
+    "@vercel/node-bridge" "^1.3.0"
+    fs-extra "^8.1.0"
 
 verror@1.10.0:
   version "1.10.0"

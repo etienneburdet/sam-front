@@ -48,6 +48,7 @@
     "rollup-plugin-workbox": "^5.2.1",
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",
-    "svelte-feather-icons": "^3.2.2"
+    "svelte-feather-icons": "^3.2.2",
+    "vercel-sapper": "^0.43.0"
   }
 }

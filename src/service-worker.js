@@ -6,7 +6,7 @@ import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies'
 const cmsBaseURL = process.env.NODE_ENV === 'development' ? 'localhost:1337' : 'samcms.herokuapp.com'
 
 precacheAndRoute(files)
-routes.forEach((route) => RegisterRoute(
+routes.forEach((route) => registerRoute(
   new RegExp(route.pattern),
   new CacheFirst({ cacheName: 'app' })
 ))
