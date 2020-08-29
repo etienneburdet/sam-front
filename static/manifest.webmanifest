@@ -3,7 +3,7 @@
 	"theme_color": "#c70039;",
 	"name": "Entrainements SAM PARIS 12",
 	"short_name": "SAM",
-	"description": "Une appli pour connaitres le programme d'entrainement de la SAM",
+	"description": "Une appli pour connaitres les entrainement de la SAM",
 	"display": "standalone",
 	"orientation": "portrait",
 	"dir": "ltr",
@@ -11,15 +11,11 @@
 	"start_url": "/",
 	"scope", "/",
 	"icons": [
+		"icons": [
 		{
-			"src": "logo-192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "logo-512.png",
-			"sizes": "512x512",
-			"type": "image/png"
+				"src": "/android-chrome-96x96.png",
+				"sizes": "96x96",
+				"type": "image/png"
 		}
 	]
 }
