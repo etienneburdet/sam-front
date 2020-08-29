@@ -31,9 +31,7 @@ export default {
     plugins: [
       replace({
         'process.browser': true,
-        __test__: true,
         'process.env.NODE_ENV': JSON.stringify(mode),
-        CMS_URL: JSON.stringify('http://localhost:1337/entrainements')
       }),
       svelte({
         dev,
