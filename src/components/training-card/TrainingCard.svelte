@@ -54,9 +54,9 @@ export let place = 'Lieu'
   }
 
   .card-header {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     line-height: 21px;
   }
 </style>

@@ -7,7 +7,7 @@
 <style lang="scss">
   h2 {
     line-height: $l;
-    font-size: $l;
+    font-size: 16px;
     font-weight: $bold;
     margin-bottom: 0;
   }

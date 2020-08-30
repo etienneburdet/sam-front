@@ -29,7 +29,6 @@ onMount(() => {
 	{#each $displayedTrainings as training (training.id)}
 		<TrainingCard
 			plan={training.plan}
-			date={training.Date}
 			title={training.Nom}
 			workouts={training.Exercice}
 			place={training.Parcours}
