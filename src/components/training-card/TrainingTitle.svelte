@@ -2,7 +2,7 @@
   export let title
 </script>
 
-<h2><span class="slashes">///</span>{title}</h2>
+<h2><span class="slashes">/// </span>{title}</h2>
 
 <style lang="scss">
   h2 {
