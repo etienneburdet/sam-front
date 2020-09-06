@@ -4,7 +4,7 @@ import { isSameWeek, isSameDay } from 'date-fns/esm//fp'
 
 const getWeekTrainingDates = ([$displayedWeek, $trainings]) => {
   const isThisWeek = isSameWeek($displayedWeek[0])
-  const trainingDates = $trainings.map(training => parseISO(training.Date))
+  const trainingDates = $trainings.map(training => parseISO(training.day))
   const weekTrainingDates = trainingDates.filter(date => isThisWeek(date))
   const orderedWeekDates = weekTrainingDates.sort((a, b) => isAfter(a, b))
   return orderedWeekDates
@@ -12,7 +12,7 @@ const getWeekTrainingDates = ([$displayedWeek, $trainings]) => {
 
 const filterDayTrainings = ([$displayedDay, $trainings]) => {
   const isOnDisplayedDay = isSameDay($displayedDay)
-  const filter = training => isOnDisplayedDay(parseISO(training.Date))
+  const filter = training => isOnDisplayedDay(parseISO(training.day))
   return $trainings.filter(filter)
 }
 

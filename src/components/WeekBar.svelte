@@ -6,7 +6,9 @@ import { isSameDay, isAfter, parseISO } from 'date-fns'
 
 import DateCard from './DateCard.svelte'
 
-import { displayedDay, displayedWeek, weekTrainingDates } from './store.js'
+import { displayedDay } from '../stores/displayed-day.js'
+import { displayedWeek } from '../stores/displayed-week.js'
+import { weekSessionsDates } from '../stores/week-sessions-dates.js'
 
 const isTraining = (day, dates) => dates.find(date => isSameDay(date, day))
 
@@ -35,7 +37,7 @@ let transition = right
     {#each $displayedWeek as day}
       <DateCard day={ day }
         isDisplayed={ isSameDay(day, $displayedDay) }
-        isTraining={ isTraining(day, $weekTrainingDates) }/>
+        isTraining={ isTraining(day, $weekSessionsDates) }/>
     {/each}
     <div class="arrow-right arrow"
       on:click={displayedWeek.nextWeek}

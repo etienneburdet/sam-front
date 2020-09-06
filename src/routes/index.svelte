@@ -1,10 +1,14 @@
 <script context="module">
 	export async function preload() {
-		const cmsBaseURL = 'samcms.herokuapp.com'
-		// const cmsBaseURL = process.env.NODE_ENV === 'development' ? 'localhost:1337' : 'samcms.herokuapp.com'
-		const res = await this.fetch(`https://${cmsBaseURL}/entrainements`)
-		const trainingsFromServ = await res.json()
-		return { trainingsFromServ }
+		// const cmsBaseURL = 'samcms.herokuapp.com'
+		const cmsBaseURL = process.env.NODE_ENV === 'development' ? 'localhost:1337' : 'samcms.herokuapp.com'
+		try {
+			const res = await this.fetch(`http://${cmsBaseURL}/seances`)
+			const sessionsFromServ = await res.json()
+			return { sessionsFromServ }
+		} catch (err) {
+			console.error("could not fetch", err)
+		}
 	}
 </script>
 
@@ -15,21 +19,26 @@ import { isSameDay, parseISO } from 'date-fns'
 import TrainingCard from '../components/training-card/TrainingCard.svelte'
 import Calendar from '../components/Calendar.svelte'
 
-import { displayedDay, weekTrainingDates, trainings, displayedTrainings } from '../components/store.js'
+import { sessions } from '../stores/sessions.js'
+import { trainings } from '../stores/trainings.js'
+import { displayedWeek } from '../stores/displayed-week.js'
+import { weekSessionsDates } from '../stores/week-sessions-dates.js'
+import { displayedDay} from '../stores/displayed-day.js'
 
-export let trainingsFromServ
+export let sessionsFromServ
+
 onMount(() => {
-	$trainings = trainingsFromServ
-	$displayedDay = $weekTrainingDates[0]
+	$sessions = sessionsFromServ
+	$displayedDay = $weekSessionsDates[0]
 })
 </script>
 
 <Calendar/>
 <div>
-	{#each $displayedTrainings as training (training.id)}
+	{#each $trainings as training (training.id)}
 		<TrainingCard
-			plan={training.plan}
-			title={training.Nom}
+			plans={training.plans}
+			title={training.training}
 			workouts={training.Exercice}
 			place={training.Parcours}
 		/>

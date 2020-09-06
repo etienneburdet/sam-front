@@ -6,7 +6,7 @@ import TrainingTitle from './TrainingTitle.svelte'
 import Workout from './Workout.svelte'
 import Route from './Route.svelte'
 
-export let plan = {}
+export let plans = []
 export let title = 'Titre séance'
 export let workouts = []
 export let place = 'Lieu'
@@ -15,7 +15,11 @@ export let place = 'Lieu'
 <div class="card" in:fade={{ duration: 100, delay: 100 }} out:fade={{ duration: 100 }}>
   <div class="card-header">
     <TrainingTitle {title}/>
-    <PlanBadge {plan}/>
+    <div>
+      {#each plans as plan (plan.name)}
+        <PlanBadge {plan}/>
+      {/each}
+    </div>
   </div>
   <ul>
     {#each workouts as workout}
