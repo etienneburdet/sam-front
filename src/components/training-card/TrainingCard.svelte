@@ -9,14 +9,14 @@ import Route from './Route.svelte'
 export let plans = []
 export let title = 'Titre séance'
 export let workouts = []
-export let place = 'Lieu'
+export let route = 'Parcours'
 </script>
 
 <div class="card" in:fade={{ duration: 100, delay: 100 }} out:fade={{ duration: 100 }}>
   <div class="card-header">
     <TrainingTitle {title}/>
-    <div>
-      {#each plans as plan (plan.name)}
+    <div class="plans">
+      {#each plans as plan (plan.id)}
         <PlanBadge {plan}/>
       {/each}
     </div>
@@ -27,7 +27,7 @@ export let place = 'Lieu'
     {/each}
   </ul>
   <div class="card-footer">
-    <Route {place}/>
+    <Route {route}/>
   </div>
 </div>
 
@@ -62,5 +62,9 @@ export let place = 'Lieu'
     align-items: flex-start;
     justify-content: space-between;
     line-height: 21px;
+  }
+
+  .plans {
+    display: flex;
   }
 </style>

@@ -3,8 +3,8 @@
 </script>
 
 <li>
-    <span class="group">{workout.groupe}</span>
-    <span>{workout.Description}</span>
+    <span class="group">{workout.nom}</span>
+    <span>{workout.instruction}</span>
 </li>
 
 <style lang="scss">

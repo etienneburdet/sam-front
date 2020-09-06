@@ -38,9 +38,9 @@ onMount(() => {
 	{#each $trainings as training (training.id)}
 		<TrainingCard
 			plans={training.plans}
-			title={training.training}
-			workouts={training.Exercice}
-			place={training.Parcours}
+			title={training.workout.Nom}
+			workouts={training.workout.groupes}
+			route={training.workout.Parcours}
 		/>
 	{/each}
 </div>

@@ -1,8 +1,8 @@
 <script>
-  export let place
+  export let route
 </script>
 
-<p>{place ? place : '---'}</p>
+<p>{route ? route : '---'}</p>
 
 <style lang="scss">
   p {
