@@ -10,7 +10,9 @@ import { displayedDay } from '../stores/displayed-day.js'
 import { displayedWeek } from '../stores/displayed-week.js'
 import { weekSessionsDates } from '../stores/week-sessions-dates.js'
 
-const isTraining = (day, dates) => dates.find(date => isSameDay(date, day))
+const isTraining = (day, dates) => {
+  return dates.find(date => isSameDay(date, day))
+}
 
 const right = {
   in: { x: 100, duration: 100, delay: 100 },
@@ -24,7 +26,6 @@ const left = {
 
 let transition = right
 </script>
-
 {#each [$displayedWeek] as week (week)}
   <div id="week"
     in:fly={transition.in}

@@ -3,7 +3,9 @@ import { format, isAfter, closestTo } from 'date-fns'
 import { fr } from 'date-fns/locale'
 import { RefreshCwIcon } from 'svelte-feather-icons'
 
-import { displayedWeek, weekTrainingDates, displayedDay } from './store.js'
+import { displayedWeek } from '../stores/displayed-week.js'
+import { weekSessionsDates } from '../stores/week-sessions-dates.js'
+import { displayedDay } from '../stores/displayed-day.js'
 
 let month
 $: month = format($displayedWeek[0], 'MMMM', { locale: fr }).replace(/^\w/, c => c.toUpperCase())
@@ -11,10 +13,10 @@ $: month = format($displayedWeek[0], 'MMMM', { locale: fr }).replace(/^\w/, c =>
 const backToNextTraining = () => {
   displayedWeek.reset()
   const now = new Date()
-  const futureTrainings = $weekTrainingDates.filter(date => isAfter(date, now))
+  const futureTrainings = $weekSessionsDates.filter(date => isAfter(date, now))
   futureTrainings[0]
     ? $displayedDay = futureTrainings[0]
-    : $displayedDay = closestTo(now, $weekTrainingDates)
+    : $displayedDay = closestTo(now, $weekSessionsDates)
 }
 </script>
 
@@ -32,7 +34,7 @@ const backToNextTraining = () => {
     justify-content: space-between;
     align-items: baseline;
   }
-  
+
   button {
     border: none;
     background: white;

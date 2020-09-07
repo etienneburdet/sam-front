@@ -2,7 +2,7 @@
   import { format } from 'date-fns'
   import { fr } from 'date-fns/locale'
 
-  import { displayedDay } from './store.js'
+  import { displayedDay } from '../stores/displayed-day.js'
 
   export let day
   export let isTraining
@@ -12,6 +12,7 @@
 
   const setDisplayDay = () => {
     if (isTraining) { $displayedDay = day }
+    console.log($displayedDay)
   }
 </script>
 
