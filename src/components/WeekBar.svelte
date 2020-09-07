@@ -14,6 +14,16 @@ const isTraining = (day, dates) => {
   return dates.find(date => isSameDay(date, day))
 }
 
+const nextWeek = () => {
+  displayedWeek.nextWeek()
+  $displayedDay = $weekSessionsDates[0] || null
+}
+
+const prevWeek = () => {
+  displayedWeek.prevWeek()
+  $displayedDay = $weekSessionsDates[0] || null
+}
+
 const right = {
   in: { x: 100, duration: 100, delay: 100 },
   out: { x: -100, duration: 100 }
@@ -32,7 +42,7 @@ let transition = right
     out:fly={transition.out}>
     <div class="arrow-left arrow"
       on:mouseenter={() => transition = left}
-      on:click={displayedWeek.prevWeek}>
+      on:click={prevWeek}>
       <TriangleIcon size="1x"/>
     </div>
     {#each $displayedWeek as day}
@@ -41,7 +51,7 @@ let transition = right
         isTraining={ isTraining(day, $weekSessionsDates) }/>
     {/each}
     <div class="arrow-right arrow"
-      on:click={displayedWeek.nextWeek}
+      on:click={nextWeek}
       on:mouseenter={() => transition = right}>
       <TriangleIcon size="1x"/>
     </div>
