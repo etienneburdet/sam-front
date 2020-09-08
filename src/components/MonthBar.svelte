@@ -12,11 +12,7 @@ $: month = format($displayedWeek[0], 'MMMM', { locale: fr }).replace(/^\w/, c =>
 
 const backToNextTraining = () => {
   displayedWeek.reset()
-  const now = new Date()
-  const futureTrainings = $weekSessionsDates.filter(date => isAfter(date, now))
-  futureTrainings[0]
-    ? $displayedDay = futureTrainings[0]
-    : $displayedDay = closestTo(now, $weekSessionsDates)
+  displayedDay.setNextSession($weekSessionsDates)
 }
 </script>
 

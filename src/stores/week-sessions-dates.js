@@ -10,7 +10,7 @@ const getWeekSessionsDates = ([$displayedWeek, $trainings]) => {
   const isThisWeek = isSameMondayWeek($displayedWeek[0])
   const trainingDates = $trainings.map(training => parseISO(training.day))
   const weekTrainingDates = trainingDates.filter(date => isThisWeek(date))
-  const orderedWeekDates = weekTrainingDates.sort((a, b) => isAfter(a)(b))
+  const orderedWeekDates = weekTrainingDates.sort((a, b) => isAfter(b)(a))
   return orderedWeekDates
 }
 
