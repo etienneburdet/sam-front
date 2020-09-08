@@ -1,7 +1,7 @@
 <script context="module">
 	export async function preload() {
-		// const cmsBaseURL = 'samcms.herokuapp.com'
-		const cmsBaseURL = process.env.NODE_ENV === 'development' ? 'localhost:1337' : 'samcms.herokuapp.com'
+		const cmsBaseURL = 'samcms.herokuapp.com'
+		// const cmsBaseURL = process.env.NODE_ENV === 'development' ? 'localhost:1337' : 'samcms.herokuapp.com'
 		try {
 			const res = await this.fetch(`http://${cmsBaseURL}/seances`)
 			const sessionsFromServ = await res.json()

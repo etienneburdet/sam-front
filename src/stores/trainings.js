@@ -10,5 +10,4 @@ const filterDayTrainings = ([$displayedDay, $sessions]) => {
   return session ? session.trainings : []
 }
 
-
 export const trainings = derived([displayedDay, sessions], filterDayTrainings)

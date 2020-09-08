@@ -12,7 +12,6 @@
 
   const setDisplayDay = () => {
     if (isTraining) { $displayedDay = day }
-    console.log($displayedDay)
   }
 </script>
 
